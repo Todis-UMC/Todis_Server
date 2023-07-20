@@ -940,3 +940,35 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 [2023-07-18 03:12:42.482] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
 [2023-07-18 03:12:42.484] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
 [2023-07-18 03:12:42.499] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-07-20 18:13:08.545] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-07-20 18:13:08.640] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 14216 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-07-20 18:13:08.642] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-07-20 18:13:10.587] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-07-20 18:13:10.755] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 151 ms. Found 1 JPA repository interfaces.
+[2023-07-20 18:13:11.672] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-07-20 18:13:11.683] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-07-20 18:13:11.686] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-07-20 18:13:11.688] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-07-20 18:13:11.836] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-07-20 18:13:11.838] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3096 ms
+[2023-07-20 18:13:12.064] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-07-20 18:13:12.162] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-07-20 18:13:12.167] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-07-20 18:13:12.413] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-07-20 18:13:12.661] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-07-20 18:13:12.708] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-07-20 18:13:13.172] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5bde6148
+[2023-07-20 18:13:13.176] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-07-20 18:13:13.725] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-07-20 18:13:15.044] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-07-20 18:13:15.243] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-07-20 18:13:15.928] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.MemberRepository
+[2023-07-20 18:13:16.043] [INFO ] [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory Hibernate is in classpath; If applicable, HQL parser will be used.
+[2023-07-20 18:13:16.736] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-07-20 18:13:16.951] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-07-20 18:13:17.365] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-07-20 18:13:17.397] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-07-20 18:13:17.412] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.979 seconds (process running for 12.197)
+[2023-07-20 18:14:19.563] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-07-20 18:14:19.565] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-07-20 18:14:19.578] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.

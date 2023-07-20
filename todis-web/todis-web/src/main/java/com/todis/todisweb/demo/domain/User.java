@@ -32,6 +32,8 @@ public class User {
     private String email;
     @Column(name="profile_image_url")
     private String profileImageUrl;
+    @Column(name="cody_image")
+    private String codyImage;
     @Column(name="field")
     private String field;
 
