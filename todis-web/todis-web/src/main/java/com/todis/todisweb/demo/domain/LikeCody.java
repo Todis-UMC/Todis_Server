@@ -23,7 +23,7 @@ public class LikeCody {
     private int coordinationId;
 
     @Builder
-    public LikeCody(int keyID, int userId, int coordinationId) {
+    public LikeCody(int keyId, int userId, int coordinationId) {
         this.keyId = keyId;
         this.userId = userId;
         this.coordinationId = coordinationId;
