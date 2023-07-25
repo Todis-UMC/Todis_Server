@@ -4,8 +4,6 @@ package com.todis.todisweb.demo.dao;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.querydsl.jpa.impl.JPAQuery;
-import com.todis.todisweb.demo.repository.MemberRepository;
-import com.todis.todisweb.demo.domain.Member;
 import com.todis.todisweb.demo.domain.QMember;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
