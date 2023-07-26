@@ -26,3 +26,4 @@ public class GlobalExceptionHandler {
         return ResponseForm.error(e.getErrorCode().getCode(), e.getErrorCode().getMessage());
     }
 }
+
