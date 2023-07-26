@@ -1,13 +1,11 @@
 package com.todis.todisweb.global.exception;
 
-
 import com.todis.todisweb.global.response.ResponseForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
 import static com.todis.todisweb.global.response.ErrorCode.*;
 
 
@@ -21,5 +19,10 @@ public class GlobalExceptionHandler {
             MethodArgumentNotValidException e) {
         LOGGER.error("ArgumentNotValidException", e);
         return ResponseForm.error(INVALID_INPUT_VALUE.getCode(), INVALID_INPUT_VALUE.getMessage());
+    }
+
+    @ExceptionHandler(value = ServiceException.class)
+    protected ResponseForm handleCustomException(ServiceException e) {
+        return ResponseForm.error(e.getErrorCode().getCode(), e.getErrorCode().getMessage());
     }
 }

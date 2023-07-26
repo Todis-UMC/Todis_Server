@@ -3,6 +3,8 @@ package com.todis.todisweb.demo.service;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.UserDto;
 import com.todis.todisweb.demo.repository.UserRepository;
+import com.todis.todisweb.global.exception.ServiceException;
+import com.todis.todisweb.global.response.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ public class UserServiceImpl implements UserService{
     }
     @Override
     public void createUser(UserDto userDto){
+
         User user = new User();
         String password = passwordEncoder.encode(userDto.getPassword());
 
@@ -29,6 +32,7 @@ public class UserServiceImpl implements UserService{
         user.setEmail(userDto.getEmail());
 
         userRepository.save(user);
+        throw new ServiceException(ErrorCode.ALREADY_EXISTS);
     }
 }
 
