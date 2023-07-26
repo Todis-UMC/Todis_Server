@@ -1,9 +1,5 @@
 package com.todis.todisweb.demo.service;
 
-import com.todis.todisweb.demo.repository.MemberRepository;
-import com.todis.todisweb.demo.domain.Member;
-import com.todis.todisweb.demo.dto.MemberDto;
-import com.todis.todisweb.demo.dto.MemberReponseDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

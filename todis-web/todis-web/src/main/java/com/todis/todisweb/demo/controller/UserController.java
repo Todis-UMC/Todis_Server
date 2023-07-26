@@ -7,7 +7,8 @@ import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.service.UserService;
 import com.todis.todisweb.global.response.ResponseForm;
 import jakarta.validation.Valid;
-import org.springframework.http.ResponseEntity;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController{
     private final UserService userService;
 
-    public UserController(UserService userService, UserRepository userRepository) {
+    @Autowired
+    public UserController(UserService userService){
         this.userService = userService;
     }
 

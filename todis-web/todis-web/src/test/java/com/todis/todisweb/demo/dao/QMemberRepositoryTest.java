@@ -1,7 +1,5 @@
 package com.todis.todisweb.demo.dao;
 
-import com.todis.todisweb.demo.repository.MemberRepository;
-import com.todis.todisweb.demo.domain.Member;
 import com.todis.todisweb.demo.domain.QMember;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
