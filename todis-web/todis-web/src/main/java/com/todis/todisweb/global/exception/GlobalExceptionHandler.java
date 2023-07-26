@@ -35,6 +35,7 @@ public class GlobalExceptionHandler {
                 INVALID_INPUT_VALUE.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
+<<<<<<< Updated upstream
 
     /**
      * @ModelAttribut 으로 binding error 발생시 BindException 발생한다.
@@ -71,3 +72,11 @@ public class GlobalExceptionHandler {
     }
 
 }
+=======
+    @ExceptionHandler({ CustomException.class })
+    protected ResponseForm handleCustomException(CustomException ex) {
+        LOGGER.error("커스텀에러", ex);
+        return ResponseForm.error(ex.getErrorCode().getCode(), ex.getErrorCode().getMessage());
+    }
+}
+>>>>>>> Stashed changes

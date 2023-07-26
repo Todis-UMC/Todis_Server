@@ -12,9 +12,10 @@ public enum ErrorCode {
     METHOD_NOT_ALLOWED(405, " Invalid Input Value"),
     ENTITY_NOT_FOUND(400, " Entity Not Found"),
     INVALID_TYPE_VALUE(400, "Invalid Type Value"),
-    HANDLE_ACCESS_DENIED(403, "Access is Denied"),
+    HANDLE_ACCESS_DENIED(403, " is Denied"),
 
-    INTERNAL_SERVER_ERROR(500, "Server Error");
+    INTERNAL_SERVER_ERROR(500, "Server Error"),
+    ALREADY_EXISTS(404, "이미 존재한 사용자입니다.");
 
     private final int status;
     private final String message;
