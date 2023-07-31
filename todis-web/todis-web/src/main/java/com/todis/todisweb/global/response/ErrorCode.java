@@ -15,7 +15,7 @@ public enum ErrorCode {
     HANDLE_ACCESS_DENIED(403, "Access is Denied"),
     INTERNAL_SERVER_ERROR(500, "Server Error"),
     ALREADY_EXISTS(400, "이미 존재하는 사용자입니다."),
-    INVALID_PASSWORD(400, "아이디 또는 비밀번호가 틀립니다.")
+
     ;
 
     private final int code;
