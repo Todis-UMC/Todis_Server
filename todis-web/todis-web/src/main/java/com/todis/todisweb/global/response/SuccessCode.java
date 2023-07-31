@@ -8,6 +8,8 @@ import lombok.Getter;
 public enum SuccessCode {
     JOIN_SUCCESS(200, "Join success!"),
     LOGIN_SUCCESS(200, "Login success!"),
+    FIND_EMAIL(200, "Find Email!"),
+    FIND_PASSWORD(200, "Find Password!"),
 
     ;
     // 다른 성공 코드들...
