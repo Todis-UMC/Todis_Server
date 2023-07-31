@@ -8,4 +8,6 @@ import lombok.Getter;
 @Getter
 public class ServiceException extends RuntimeException {
     private final ErrorCode errorCode;
+
+
 }

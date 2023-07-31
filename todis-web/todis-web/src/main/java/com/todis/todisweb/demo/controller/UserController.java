@@ -29,4 +29,10 @@ public class UserController{
         userService.createUser(userDto);
         return ResponseForm.success(JOIN_SUCCESS.getCode(), JOIN_SUCCESS.getMessage(), null);
     }
+
+    @PostMapping("/login")
+    public ResponseForm loginUser(@RequestBody UserDto userDto){
+        String token = userService.loginUser((userDto));
+        return ResponseForm.success(LOGIN_SUCCESS.getCode(), LOGIN_SUCCESS.getMessage(), token);
+    }
 }

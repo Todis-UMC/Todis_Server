@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="445488c2-1dd2-4aa7-91db-cc445e98c11f" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/security/TokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/resources/jwt.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/demo/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/exception/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/exception/ServiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/response/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/java/com/todis/todisweb/global/response/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todis-web/todis-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/todis-web/todis-web/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,24 +46,7 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="todis-web" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="todis-web" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="todis-web" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build setup" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="todis-web" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -81,30 +76,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/minju/Desktop/myProjects/Todis_Server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "문제",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Properties",
-    "spring.configuration.checksum": "29702aee08f0ff89066ed0ffb3bc847c",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/minju/Desktop/myProjects/Todis_Server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;29702aee08f0ff89066ed0ffb3bc847c&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.TodisWebApplication">
     <configuration name="todis-web [bootBuildImage]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -125,6 +121,7 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="todis-web [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -146,6 +143,7 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="todis-web [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -167,6 +165,22 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="gradlew" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/todis-web/todis-web/gradlew" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/todis-web/todis-web" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="TodisWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -178,6 +192,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Shell Script.gradlew" />
         <item itemvalue="Gradle.todis-web [bootBuildImage]" />
         <item itemvalue="Gradle.todis-web [init]" />
         <item itemvalue="Gradle.todis-web [bootJar]" />
@@ -201,6 +216,8 @@
       <workItem from="1690181143686" duration="45000" />
       <workItem from="1690181190728" duration="3500000" />
       <workItem from="1690382625911" duration="153000" />
+      <workItem from="1690775963604" duration="14000" />
+      <workItem from="1690775988893" duration="4826000" />
     </task>
     <servers />
   </component>
