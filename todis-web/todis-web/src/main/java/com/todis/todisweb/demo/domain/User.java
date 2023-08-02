@@ -36,6 +36,8 @@ public class User {
     private String codyImage;
     @Column(name="field")
     private String field;
+    @Column(name="provider")
+    private String provider;
 
     @Column(name="created_at")
     @CreationTimestamp
@@ -46,7 +48,7 @@ public class User {
     private Timestamp updatedAt;
 
     @Builder
-    public User(int id, String name, int uId, String password, String email, String profileImageUrl, String field, Timestamp createdAt, Timestamp updatedAt) {
+    public User(int id, String name, int uId, String password, String email, String profileImageUrl, String field, String provider, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.name = name;
         this.uId = uId;
@@ -54,6 +56,7 @@ public class User {
         this.email = email;
         this.profileImageUrl = profileImageUrl;
         this.field = field;
+        this.provider = provider;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
