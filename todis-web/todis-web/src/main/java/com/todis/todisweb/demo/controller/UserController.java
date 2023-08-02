@@ -69,10 +69,8 @@ public class UserController{
     @DeleteMapping("/signout")
     public ResponseForm signout(){return null;}
 
-    // Get 요청 보내면 코드가 날라옴
-    //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=e963a78de4d72b6755264d91fb7bb784&redirect_uri=http://localhost:8080/user/kakao/
     @GetMapping("/kakao/")
-    public @ResponseBody String kakaoCallback(String code){
+    public @ResponseBody ResponseForm kakaoCallback(String code){
         //인가코드로 엑세스토큰 받아오기
         OAuthToken oAuthToken = userService.getKakaoToken(code);
 
@@ -88,6 +86,8 @@ public class UserController{
                 .build();
 
         //로그인 하면서 액세스토큰 반환
-        return userService.kakaoLogin(user);
+        String accessToken = userService.kakaoLogin(user);
+
+        return ResponseForm.success(LOGIN_SUCCESS.getCode(), LOGIN_SUCCESS.getMessage(), accessToken);
     }
 }
