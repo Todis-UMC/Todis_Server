@@ -2,16 +2,27 @@ package com.todis.todisweb.demo.controller;
 
 import static com.todis.todisweb.global.response.SuccessCode.*;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.todis.todisweb.demo.domain.KakaoProfile;
+import com.todis.todisweb.demo.domain.OAuthToken;
+import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.UserDto;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.service.UserService;
 import com.todis.todisweb.global.response.ResponseForm;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.security.core.Authentication;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -57,4 +68,26 @@ public class UserController{
 
     @DeleteMapping("/signout")
     public ResponseForm signout(){return null;}
+
+    // Get 요청 보내면 코드가 날라옴
+    //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=e963a78de4d72b6755264d91fb7bb784&redirect_uri=http://localhost:8080/user/kakao/
+    @GetMapping("/kakao/")
+    public @ResponseBody String kakaoCallback(String code){
+        //인가코드로 엑세스토큰 받아오기
+        OAuthToken oAuthToken = userService.getKakaoToken(code);
+
+        //액세스토큰으로 유저정보 가져오기
+        KakaoProfile kakaoProfile = userService.getKakaoProfile(oAuthToken);
+
+        //userDto 객체 만들어서 회원가입 및 로그인 진행
+        User user = User.builder()
+                .name(kakaoProfile.properties.nickname)  //이름은 카카오에서 제공하는 닉네임
+                .password(UUID.randomUUID().toString())  //비밀번호는 랜덤값으로 지정
+                .email(kakaoProfile.getKakao_account().getEmail()) //이메일은 카카오에서 제공하는 이메일
+                .provider("kakao")
+                .build();
+
+        //로그인 하면서 액세스토큰 반환
+        return userService.kakaoLogin(user);
+    }
 }
