@@ -24,8 +24,6 @@ public class User {
 
     @Column(name="name")
     private String name;
-    @Column(name="uId")
-    private int uId;
     @Column(name="password")
     private String password;
     @Column(name="email")
@@ -46,10 +44,9 @@ public class User {
     private Timestamp updatedAt;
 
     @Builder
-    public User(int id, String name, int uId, String password, String email, String profileImageUrl, String field, Timestamp createdAt, Timestamp updatedAt) {
+    public User(int id, String name, String password, String email, String profileImageUrl, String field, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.name = name;
-        this.uId = uId;
         this.password = password;
         this.email = email;
         this.profileImageUrl = profileImageUrl;
@@ -57,4 +54,5 @@ public class User {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
 }

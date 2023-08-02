@@ -1,9 +1,6 @@
 package com.todis.todisweb.demo.controller;
 
 import com.google.gson.Gson;
-import com.todis.todisweb.demo.dto.MemberDto;
-import com.todis.todisweb.demo.dto.MemberReponseDto;
-import com.todis.todisweb.demo.service.MemberServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

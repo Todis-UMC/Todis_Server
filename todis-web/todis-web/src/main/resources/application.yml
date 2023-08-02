@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springboot
     username: root
-    password: qwer1234
+    password: root
 
   jpa:
     database: mysql
@@ -19,3 +19,6 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+jwt:
+  secret: NiOeyFbN1Gefg9U2XM2jkeIL8XSvGP04eFqj5B30r5TcrtlSXfQ7TndvYjNvfkEKLqILn0j1SmKODO1Yw3JpBBgI3nVPEahqxeY8qbPSFGyzyEVxnl4AQcrnVneI
