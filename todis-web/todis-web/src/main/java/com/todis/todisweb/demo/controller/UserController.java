@@ -25,7 +25,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.UUID;
 
-@CrossOrigin(originPatterns = "http://localhost:3000")
 @RestController
 @RequestMapping("/user")
 @Slf4j

@@ -23,7 +23,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-@CrossOrigin(originPatterns = "http://localhost:3000")
 @RestController
 @RequestMapping("/weather")
 public class WeatherController{
