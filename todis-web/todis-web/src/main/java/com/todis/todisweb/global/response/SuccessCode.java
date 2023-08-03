@@ -21,6 +21,8 @@ public enum SuccessCode {
     GET_FRIEND_LIST_DETAIL(200, "Get Friend List Detail"),
     DELETE_FRIEND_LIST(200, "Delete Friend List"),
 
+    //Cody
+    POST_SUCCESS(200, "Post success!")
     ;
     // 다른 성공 코드들...
 
