@@ -29,7 +29,7 @@ import org.springframework.web.client.RestTemplate;
 public class WeatherController{
 
     @GetMapping("/get")
-    public String getWeatherInfo()
+    public ResponseEntity<String> getWeatherInfo()
             throws IOException, URISyntaxException {
 
         //프론트에서 받아야하는 값 면 or 읍 or 동 주소
@@ -83,7 +83,7 @@ public class WeatherController{
         );
 
 
-        return response.toString();
+        return response;
     }
 
 }
