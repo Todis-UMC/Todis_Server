@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/friend")
+@RestController
+@RequestMapping("/friend")
 public class FriendRequestController {
 
     @Autowired
