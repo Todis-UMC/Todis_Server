@@ -12,6 +12,7 @@ import java.net.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import com.todis.todisweb.demo.domain.WeatherInfo;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -29,7 +30,7 @@ import org.springframework.web.client.RestTemplate;
 public class WeatherController{
 
     @GetMapping("/get")
-    public ResponseEntity<String> getWeatherInfo()
+    public String getWeatherInfo()
             throws IOException, URISyntaxException {
 
         //프론트에서 받아야하는 값 면 or 읍 or 동 주소
@@ -81,9 +82,18 @@ public class WeatherController{
                 null,
                 String.class  //응답받을 타입
         );
+        
+        ObjectMapper objectMapper = new ObjectMapper();
+        WeatherInfo weatherInfo = null;
+        try {
+            weatherInfo = objectMapper.readValue(response.getBody() , WeatherInfo.class);
+        }catch (JsonMappingException e) {
+            e.printStackTrace();
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
 
-
-        return response;
+        return weatherInfo.getItem(weatherInfo, "VVV");
     }
 
 }
