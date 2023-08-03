@@ -42,7 +42,7 @@ public class FriendListController {
     @DeleteMapping("/listdelete")
     public ResponseForm deleteFriend(Authentication authentication, String friend_email){
         friendListService.deleteFriendlist(authentication.getName(), friend_email);
-        return ResponseForm.success(DELETE_FRIEND_LIST.getCode(), DELETE_FRIEND_REQUEST.getMessage(), null);
+        return ResponseForm.success(DELETE_FRIEND_LIST.getCode(), DELETE_FRIEND_LIST.getMessage(), null);
     }
 
 }
