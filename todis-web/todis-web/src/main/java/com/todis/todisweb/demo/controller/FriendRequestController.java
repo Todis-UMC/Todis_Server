@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/friend")
 public class FriendRequestController {
 
     @Autowired
     private FriendRequestService friendRequestService;
 
-    @PostMapping("/requestfriend")
+    @PostMapping("/request")
     public ResponseForm requestFriend(Authentication authentication, String friend_email){
         friendRequestService.FriendRequestUserIdToFriendId(authentication.getName(), friend_email);
         return ResponseForm.success(FRIEND_REQUEST.getCode(), FRIEND_REQUEST.getMessage(), null);
