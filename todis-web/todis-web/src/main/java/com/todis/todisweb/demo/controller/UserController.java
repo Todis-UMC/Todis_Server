@@ -2,6 +2,7 @@ package com.todis.todisweb.demo.controller;
 
 import static com.todis.todisweb.global.response.SuccessCode.*;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -68,6 +69,7 @@ public class UserController{
 
     @DeleteMapping("/signout")
     public ResponseForm signout(){return null;}
+
 
     // Get 요청 보내면 코드가 날라옴
     //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=e963a78de4d72b6755264d91fb7bb784&redirect_uri=http://localhost:8080/user/kakao/

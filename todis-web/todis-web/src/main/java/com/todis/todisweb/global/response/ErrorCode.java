@@ -19,6 +19,11 @@ public enum ErrorCode {
     TOKEN_EXPIRED(400, "토큰이 만료되었습니다."),
     TOKEN_INVALID(400, "토큰이 유효하지 않습니다."),
     EMAIL_ALREADY_USED(400,"이미 사용중인 이메일 입니다.")
+
+    // FriendRequest
+    REQUEST_NOT_EXISTS(400, "해당 친구 요청이 존재하지 않습니다."),
+    REAUEST_ALREADY_EXISTS(400, "해당 친구 요청이 이미 존재합니다."),
+
     ;
 
     private final int code;
