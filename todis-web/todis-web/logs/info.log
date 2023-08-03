@@ -972,3 +972,1111 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 [2023-07-20 18:14:19.563] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
 [2023-07-20 18:14:19.565] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
 [2023-07-20 18:14:19.578] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 01:55:00.991] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 01:55:01.089] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 12636 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 01:55:01.091] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 01:55:03.567] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 01:55:03.718] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 132 ms. Found 1 JPA repository interfaces.
+[2023-08-03 01:55:05.142] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 01:55:05.159] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 01:55:05.163] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 01:55:05.164] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 01:55:05.477] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 01:55:05.481] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 4271 ms
+[2023-08-03 01:55:05.819] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 01:55:05.992] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 01:55:05.997] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 01:55:06.363] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 01:55:06.741] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 01:55:06.772] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 01:55:08.412] [ERROR] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.todis.todisweb.TodisWebApplication.main(TodisWebApplication.java:10)
+[2023-08-03 01:55:08.419] [WARN ] [main] org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator HHH000342: Could not obtain connection to query metadata
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.todis.todisweb.TodisWebApplication.main(TodisWebApplication.java:10)
+[2023-08-03 01:55:09.168] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 01:55:10.750] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 01:55:10.817] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 01:55:11.862] [ERROR] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:564)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:292)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.todis.todisweb.TodisWebApplication.main(TodisWebApplication.java:10)
+[2023-08-03 01:55:11.866] [WARN ] [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper SQL Error: 1045, SQLState: 28000
+[2023-08-03 01:55:11.867] [ERROR] [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper Access denied for user 'root'@'localhost' (using password: YES)
+[2023-08-03 01:55:11.876] [ERROR] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+[2023-08-03 01:55:11.877] [WARN ] [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+[2023-08-03 01:55:11.881] [INFO ] [main] org.apache.catalina.core.StandardService Stopping service [Tomcat]
+[2023-08-03 01:55:11.906] [INFO ] [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2023-08-03 01:55:11.940] [ERROR] [main] org.springframework.boot.SpringApplication Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.todis.todisweb.TodisWebApplication.main(TodisWebApplication.java:10)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 16 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:61)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:564)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:292)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	... 41 common frames omitted
+[2023-08-03 01:56:14.221] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 01:56:14.316] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 14060 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 01:56:14.318] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 01:56:16.013] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 01:56:16.113] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 89 ms. Found 1 JPA repository interfaces.
+[2023-08-03 01:56:17.010] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 01:56:17.022] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 01:56:17.025] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 01:56:17.025] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 01:56:17.179] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 01:56:17.179] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2758 ms
+[2023-08-03 01:56:17.430] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 01:56:17.545] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 01:56:17.550] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 01:56:17.814] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 01:56:18.085] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 01:56:18.112] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 01:56:18.593] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43fe2008
+[2023-08-03 01:56:18.596] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 01:56:19.180] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 01:56:20.348] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 01:56:20.618] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 01:56:21.093] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 01:56:21.606] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 01:56:21.643] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 234d2d30-528f-40a0-9928-97f7303d5337
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 01:56:21.848] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@30942f54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11d557a5, org.springframework.security.web.context.SecurityContextHolderFilter@10efb806, org.springframework.security.web.header.HeaderWriterFilter@103a1ad3, org.springframework.security.web.authentication.logout.LogoutFilter@3d6c7152, com.todis.todisweb.demo.security.JwtFilter@55b5ce0f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a728076, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66450129, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65067d37, org.springframework.security.web.session.SessionManagementFilter@18b88f7, org.springframework.security.web.access.ExceptionTranslationFilter@623c9988, org.springframework.security.web.access.intercept.AuthorizationFilter@3ed3e66d]
+[2023-08-03 01:56:22.240] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 01:56:22.744] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 01:56:22.780] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 01:56:22.793] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.621 seconds (process running for 10.987)
+[2023-08-03 03:42:41.043] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 03:42:41.091] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 03:42:41.102] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 13:02:25.262] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 13:02:25.373] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 10488 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 13:02:25.374] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 13:02:28.079] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 13:02:28.248] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 150 ms. Found 1 JPA repository interfaces.
+[2023-08-03 13:02:29.681] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 13:02:29.701] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:02:29.706] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 13:02:29.706] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 13:02:29.911] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 13:02:29.915] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 4362 ms
+[2023-08-03 13:02:30.280] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 13:02:30.422] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 13:02:30.445] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 13:02:30.792] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:02:31.112] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 13:02:31.151] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 13:02:32.099] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46994f26
+[2023-08-03 13:02:32.103] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 13:02:32.736] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:02:34.147] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 13:02:34.371] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:02:34.895] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 13:02:35.333] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 13:02:35.362] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 4016da78-ebc8-4af6-be98-1de71ac8aa64
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 13:02:35.582] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@386d41cb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20bf7206, org.springframework.security.web.context.SecurityContextHolderFilter@d60aa4, org.springframework.security.web.header.HeaderWriterFilter@713c8cbb, org.springframework.security.web.authentication.logout.LogoutFilter@6079d219, com.todis.todisweb.demo.security.JwtFilter@4cb939d5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11d557a5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f2a0909, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30b0f674, org.springframework.security.web.session.SessionManagementFilter@490f2fad, org.springframework.security.web.access.ExceptionTranslationFilter@5dfb65d5, org.springframework.security.web.access.intercept.AuthorizationFilter@643f8ebe]
+[2023-08-03 13:02:35.871] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 13:02:36.343] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:02:36.376] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 13:02:36.391] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 12.499 seconds (process running for 16.161)
+[2023-08-03 13:03:23.487] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:03:23.490] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 13:03:23.504] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 13:03:35.443] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 13:03:35.535] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 14032 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 13:03:35.537] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 13:03:37.418] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 13:03:37.533] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 105 ms. Found 1 JPA repository interfaces.
+[2023-08-03 13:03:38.529] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 13:03:38.545] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:03:38.548] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 13:03:38.548] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 13:03:38.720] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 13:03:38.723] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3086 ms
+[2023-08-03 13:03:38.989] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 13:03:39.096] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 13:03:39.100] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 13:03:39.398] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:03:39.632] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 13:03:39.658] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 13:03:40.221] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c206b14
+[2023-08-03 13:03:40.225] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 13:03:40.827] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:03:41.998] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 13:03:42.177] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:03:42.569] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 13:03:42.907] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 13:03:42.935] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 75ad5787-a309-4636-86d7-4186f014f7a4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 13:03:43.103] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@650997b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7337f87e, org.springframework.security.web.context.SecurityContextHolderFilter@62ad5f35, org.springframework.security.web.header.HeaderWriterFilter@56e9126f, org.springframework.security.web.authentication.logout.LogoutFilter@7a8e484b, com.todis.todisweb.demo.security.JwtFilter@77e24d3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4117e0c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@281d3ce7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66831b14, org.springframework.security.web.session.SessionManagementFilter@74f9004c, org.springframework.security.web.access.ExceptionTranslationFilter@23974cac, org.springframework.security.web.access.intercept.AuthorizationFilter@39f5eba4]
+[2023-08-03 13:03:43.399] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 13:03:43.839] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:03:43.869] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 13:03:43.883] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.694 seconds (process running for 11.179)
+[2023-08-03 13:05:23.412] [INFO ] [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 13:05:23.412] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 13:05:23.416] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Completed initialization in 4 ms
+[2023-08-03 13:05:23.451] [ERROR] [http-nio-8080-exec-1] com.todis.todisweb.demo.security.JwtFilter 인증정보가 없습니다.
+[2023-08-03 13:05:40.946] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:05:40.951] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 13:05:40.965] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 13:05:53.492] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 13:05:53.587] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 12260 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 13:05:53.589] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 13:05:55.256] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 13:05:55.355] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 88 ms. Found 1 JPA repository interfaces.
+[2023-08-03 13:05:56.307] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 13:05:56.323] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:05:56.326] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 13:05:56.326] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 13:05:56.487] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 13:05:56.489] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2791 ms
+[2023-08-03 13:05:56.776] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 13:05:56.919] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 13:05:56.923] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 13:05:57.298] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:05:57.673] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 13:05:57.707] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 13:05:58.517] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ab9d160
+[2023-08-03 13:05:58.521] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 13:05:59.129] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:06:00.537] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 13:06:00.730] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:06:01.175] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 13:06:01.529] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 13:06:01.564] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 0926b5d6-1455-4bab-ac4e-1439a8e84745
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 13:06:01.724] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74f9004c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f2a0909, org.springframework.security.web.context.SecurityContextHolderFilter@67fda9fb, org.springframework.security.web.header.HeaderWriterFilter@6418075c, org.springframework.security.web.authentication.logout.LogoutFilter@56e9126f, com.todis.todisweb.demo.security.JwtFilter@34947355, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66450129, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a106b26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62ad5f35, org.springframework.security.web.session.SessionManagementFilter@4dfe56dc, org.springframework.security.web.access.ExceptionTranslationFilter@1b18fa79, org.springframework.security.web.access.intercept.AuthorizationFilter@11d557a5]
+[2023-08-03 13:06:02.021] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 13:06:02.480] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:06:02.511] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 13:06:02.525] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 10.187 seconds (process running for 11.654)
+[2023-08-03 13:06:18.155] [INFO ] [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 13:06:18.156] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 13:06:18.157] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms
+[2023-08-03 13:06:18.188] [ERROR] [http-nio-8080-exec-2] com.todis.todisweb.demo.security.JwtFilter 인증정보가 없습니다.
+[2023-08-03 13:06:26.731] [ERROR] [http-nio-8080-exec-3] com.todis.todisweb.demo.security.JwtFilter 인증정보가 없습니다.
+[2023-08-03 13:11:36.059] [ERROR] [http-nio-8080-exec-6] com.todis.todisweb.demo.security.JwtFilter 인증정보가 없습니다.
+[2023-08-03 13:12:02.913] [ERROR] [http-nio-8080-exec-7] com.todis.todisweb.demo.security.JwtFilter 인증정보가 없습니다.
+[2023-08-03 13:12:26.127] [ERROR] [http-nio-8080-exec-8] com.todis.todisweb.demo.security.JwtFilter 인증정보가 없습니다.
+[2023-08-03 13:13:29.761] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:13:29.769] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 13:13:29.802] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 13:13:36.229] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 13:13:36.320] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 11164 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 13:13:36.321] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 13:13:38.218] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 13:13:38.320] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 92 ms. Found 1 JPA repository interfaces.
+[2023-08-03 13:13:39.349] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 13:13:39.365] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:13:39.369] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 13:13:39.369] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 13:13:39.543] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 13:13:39.546] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3076 ms
+[2023-08-03 13:13:39.839] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 13:13:39.982] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 13:13:39.987] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 13:13:40.299] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:13:40.586] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 13:13:40.620] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 13:13:41.232] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@c5a2d5
+[2023-08-03 13:13:41.236] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 13:13:41.840] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:13:43.162] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 13:13:43.306] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:13:43.736] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 13:13:44.121] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 13:13:44.156] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 8f4c10ab-caff-4f85-bafd-0dd3c2311585
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 13:13:44.319] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4cf46574, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@779cda39, org.springframework.security.web.context.SecurityContextHolderFilter@4e9d1119, org.springframework.security.web.header.HeaderWriterFilter@4615bc00, org.springframework.security.web.authentication.logout.LogoutFilter@31ecb361, com.todis.todisweb.demo.security.JwtFilter@4205d1c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6079d219, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@531ed68e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4512f5f1, org.springframework.security.web.session.SessionManagementFilter@19240b9, org.springframework.security.web.access.ExceptionTranslationFilter@45e49d3d, org.springframework.security.web.access.intercept.AuthorizationFilter@69fa5536]
+[2023-08-03 13:13:44.670] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 13:13:45.115] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:13:45.147] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 13:13:45.161] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 10.298 seconds (process running for 11.655)
+[2023-08-03 13:13:57.433] [INFO ] [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 13:13:57.434] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 13:13:57.439] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Completed initialization in 5 ms
+[2023-08-03 13:14:35.477] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:14:35.480] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 13:14:35.490] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 13:14:46.665] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 13:14:46.752] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 19060 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 13:14:46.754] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 13:14:48.329] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 13:14:48.448] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 108 ms. Found 1 JPA repository interfaces.
+[2023-08-03 13:14:49.581] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 13:14:49.594] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:14:49.597] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 13:14:49.598] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 13:14:49.761] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 13:14:49.761] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2907 ms
+[2023-08-03 13:14:50.018] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 13:14:50.113] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 13:14:50.117] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 13:14:50.403] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:14:50.685] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 13:14:50.717] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 13:14:51.211] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74431832
+[2023-08-03 13:14:51.215] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 13:14:51.937] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:14:53.342] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 13:14:53.539] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:14:53.977] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 13:14:54.338] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 13:14:54.370] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 6d475ec2-76ee-45b6-ae5a-77e94b165dba
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 13:14:54.522] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4117e0c9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@568e2d65, org.springframework.security.web.context.SecurityContextHolderFilter@14927cd4, org.springframework.security.web.header.HeaderWriterFilter@37c49a55, org.springframework.security.web.authentication.logout.LogoutFilter@3ed3e66d, com.todis.todisweb.demo.security.JwtFilter@5e528476, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@445d878c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60c68c7b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56728f48, org.springframework.security.web.session.SessionManagementFilter@66450129, org.springframework.security.web.access.ExceptionTranslationFilter@54d116d5, org.springframework.security.web.access.intercept.AuthorizationFilter@34947355]
+[2023-08-03 13:14:54.800] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 13:14:55.229] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:14:55.259] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 13:14:55.274] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.714 seconds (process running for 10.987)
+[2023-08-03 13:15:03.100] [INFO ] [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 13:15:03.100] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 13:15:03.103] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Completed initialization in 2 ms
+[2023-08-03 13:15:28.041] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:15:28.044] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 13:15:28.054] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 13:15:44.262] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 13:15:44.405] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 16440 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 13:15:44.410] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 13:15:46.520] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 13:15:46.667] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 130 ms. Found 1 JPA repository interfaces.
+[2023-08-03 13:15:47.827] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 13:15:47.840] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:15:47.844] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 13:15:47.845] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 13:15:48.359] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 13:15:48.370] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3754 ms
+[2023-08-03 13:15:48.887] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 13:15:49.054] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 13:15:49.059] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 13:15:49.484] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:15:49.766] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 13:15:49.795] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 13:15:50.313] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a944af9
+[2023-08-03 13:15:50.317] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 13:15:50.881] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:15:52.236] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 13:15:52.405] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:15:52.778] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 13:15:53.124] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 13:15:53.153] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 78a55f8a-f90d-482c-8e84-75e77b0d9a23
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 13:15:53.309] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72e5206, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4615bc00, org.springframework.security.web.context.SecurityContextHolderFilter@1315d910, org.springframework.security.web.header.HeaderWriterFilter@4dfe56dc, org.springframework.security.web.authentication.logout.LogoutFilter@74f9004c, com.todis.todisweb.demo.security.JwtFilter@37f75ebf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a5eb613, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bfe4df9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@569b3009, org.springframework.security.web.session.SessionManagementFilter@119f035f, org.springframework.security.web.access.ExceptionTranslationFilter@34128fed, org.springframework.security.web.access.intercept.AuthorizationFilter@281d3ce7]
+[2023-08-03 13:15:53.606] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 13:15:54.007] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:15:54.037] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 13:15:54.050] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 11.369 seconds (process running for 13.223)
+[2023-08-03 13:15:58.849] [INFO ] [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 13:15:58.849] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 13:15:58.852] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Completed initialization in 2 ms
+[2023-08-03 13:18:45.464] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:18:45.468] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 13:18:45.483] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 13:18:58.263] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 13:18:58.352] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 8628 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 13:18:58.354] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 13:19:00.016] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 13:19:00.118] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 89 ms. Found 1 JPA repository interfaces.
+[2023-08-03 13:19:01.019] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 13:19:01.031] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:19:01.035] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 13:19:01.035] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 13:19:01.208] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 13:19:01.209] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2756 ms
+[2023-08-03 13:19:01.482] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 13:19:01.605] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 13:19:01.617] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 13:19:01.921] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:19:02.284] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 13:19:02.313] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 13:19:02.850] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8b89b3a
+[2023-08-03 13:19:02.854] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 13:19:03.602] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 13:19:04.864] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 13:19:05.048] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 13:19:05.511] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 13:19:05.886] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 13:19:05.925] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 958123df-5527-4922-a27a-dea636306075
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 13:19:06.186] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@a3f1f32, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67fda9fb, org.springframework.security.web.context.SecurityContextHolderFilter@4ea4290f, org.springframework.security.web.header.HeaderWriterFilter@439054a7, org.springframework.security.web.authentication.logout.LogoutFilter@530ee11a, com.todis.todisweb.demo.security.JwtFilter@580a5b6e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e783f78, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79f82fc4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66450129, org.springframework.security.web.session.SessionManagementFilter@2e68bd3d, org.springframework.security.web.access.ExceptionTranslationFilter@3d3c14c3, org.springframework.security.web.access.intercept.AuthorizationFilter@10efb806]
+[2023-08-03 13:19:06.565] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 13:19:07.097] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 13:19:07.146] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 13:19:07.161] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.971 seconds (process running for 11.187)
+[2023-08-03 13:19:10.363] [INFO ] [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 13:19:10.363] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 13:19:10.366] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Completed initialization in 2 ms
+[2023-08-03 14:14:12.950] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:14:12.963] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:14:12.978] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 14:14:25.283] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 14:14:25.380] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 832 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 14:14:25.382] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 14:14:27.275] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 14:14:27.376] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 90 ms. Found 1 JPA repository interfaces.
+[2023-08-03 14:14:28.376] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 14:14:28.390] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:14:28.396] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 14:14:28.396] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 14:14:28.621] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 14:14:28.625] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3129 ms
+[2023-08-03 14:14:28.947] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 14:14:29.068] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 14:14:29.074] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 14:14:29.391] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:14:29.762] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 14:14:29.802] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 14:14:30.335] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5dacf18d
+[2023-08-03 14:14:30.339] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 14:14:30.936] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:14:33.033] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 14:14:33.186] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:14:33.605] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 14:14:33.951] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 14:14:33.982] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: d61f71e0-1add-43ed-9b0d-12892c8a91ba
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 14:14:34.184] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23d0f6be, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48cebb78, org.springframework.security.web.context.SecurityContextHolderFilter@23cfc9eb, org.springframework.security.web.header.HeaderWriterFilter@580a5b6e, org.springframework.security.web.authentication.logout.LogoutFilter@5e6ad84c, com.todis.todisweb.demo.security.JwtFilter@45c10678, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2bfe4df9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23ee31b8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ad57db1, org.springframework.security.web.session.SessionManagementFilter@7a79a5d6, org.springframework.security.web.access.ExceptionTranslationFilter@a3f1f32, org.springframework.security.web.access.intercept.AuthorizationFilter@4615bc00]
+[2023-08-03 14:14:34.522] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 14:14:34.984] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:14:35.029] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 14:14:35.042] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 10.906 seconds (process running for 12.631)
+[2023-08-03 14:15:42.638] [INFO ] [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 14:15:42.638] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 14:15:42.639] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms
+[2023-08-03 14:15:42.766] [ERROR] [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2023-08-03T05:12:26Z. Current time: 2023-08-03T05:15:42Z, a difference of 196764 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at com.todis.todisweb.demo.security.JwtUtil.isExpired(JwtUtil.java:18)
+	at com.todis.todisweb.demo.security.JwtFilter.doFilterInternal(JwtFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2023-08-03 14:16:44.789] [ERROR] [http-nio-8080-exec-5] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2023-08-03T05:12:26Z. Current time: 2023-08-03T05:16:44Z, a difference of 258788 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at com.todis.todisweb.demo.security.JwtUtil.isExpired(JwtUtil.java:18)
+	at com.todis.todisweb.demo.security.JwtFilter.doFilterInternal(JwtFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2023-08-03 14:20:36.753] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:20:36.755] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:20:36.769] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 14:20:49.702] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 14:20:49.826] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 7056 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 14:20:49.828] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 14:20:51.747] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 14:20:51.851] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 91 ms. Found 1 JPA repository interfaces.
+[2023-08-03 14:20:52.782] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 14:20:52.794] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:20:52.797] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 14:20:52.798] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 14:20:52.953] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 14:20:52.954] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3007 ms
+[2023-08-03 14:20:53.225] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 14:20:53.333] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 14:20:53.336] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 14:20:53.674] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:20:53.960] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 14:20:53.986] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 14:20:54.459] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3de45b6c
+[2023-08-03 14:20:54.462] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 14:20:55.103] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:20:56.701] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 14:20:56.940] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:20:57.348] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 14:20:57.666] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 14:20:57.691] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 15cccec2-a770-4e0f-bb6b-67478c7e5984
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 14:20:57.864] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3ed3e66d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e9947af, org.springframework.security.web.context.SecurityContextHolderFilter@18b88f7, org.springframework.security.web.header.HeaderWriterFilter@31d791c0, org.springframework.security.web.authentication.logout.LogoutFilter@7680beac, com.todis.todisweb.demo.security.JwtFilter@d60aa4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34128fed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a3f1f32, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30942f54, org.springframework.security.web.session.SessionManagementFilter@37c49a55, org.springframework.security.web.access.ExceptionTranslationFilter@671c71e8, org.springframework.security.web.access.intercept.AuthorizationFilter@579cfcc4]
+[2023-08-03 14:20:58.228] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 14:20:58.744] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:20:58.789] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 14:20:58.805] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 10.343 seconds (process running for 11.681)
+[2023-08-03 14:24:49.978] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:24:49.981] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:24:49.992] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 14:24:56.065] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 14:24:56.165] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 17216 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 14:24:56.169] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 14:24:58.130] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 14:24:58.232] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 91 ms. Found 1 JPA repository interfaces.
+[2023-08-03 14:24:59.472] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 14:24:59.496] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:24:59.506] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 14:24:59.507] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 14:24:59.780] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 14:24:59.781] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3504 ms
+[2023-08-03 14:25:00.032] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 14:25:00.166] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 14:25:00.172] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 14:25:00.494] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:25:00.787] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 14:25:00.817] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 14:25:01.323] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8b89b3a
+[2023-08-03 14:25:01.326] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 14:25:02.190] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:25:03.858] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 14:25:04.057] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:25:04.937] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 14:25:05.487] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 14:25:05.520] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 9f97e57c-f08f-4362-af0e-7ed2589a6a6a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 14:25:05.694] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@30942f54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11d557a5, org.springframework.security.web.context.SecurityContextHolderFilter@10efb806, org.springframework.security.web.header.HeaderWriterFilter@66ab3716, org.springframework.security.web.authentication.logout.LogoutFilter@3d6c7152, com.todis.todisweb.demo.security.JwtFilter@55b5ce0f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a728076, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66450129, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65067d37, org.springframework.security.web.session.SessionManagementFilter@18b88f7, org.springframework.security.web.access.ExceptionTranslationFilter@31d791c0, org.springframework.security.web.access.intercept.AuthorizationFilter@3ed3e66d]
+[2023-08-03 14:25:05.970] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 14:25:06.573] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:25:06.605] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 14:25:06.618] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 11.725 seconds (process running for 12.952)
+[2023-08-03 14:26:02.605] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:26:02.609] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:26:02.623] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 14:26:09.613] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 14:26:09.723] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 17952 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 14:26:09.725] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 14:26:11.658] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 14:26:11.825] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 147 ms. Found 1 JPA repository interfaces.
+[2023-08-03 14:26:13.016] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 14:26:13.031] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:26:13.035] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 14:26:13.035] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 14:26:13.241] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 14:26:13.243] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 3411 ms
+[2023-08-03 14:26:13.487] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 14:26:13.600] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 14:26:13.605] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 14:26:13.873] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:26:14.135] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 14:26:14.160] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 14:26:14.649] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b8cf049
+[2023-08-03 14:26:14.654] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 14:26:15.398] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:26:16.815] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 14:26:16.943] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:26:17.355] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 14:26:17.697] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 14:26:17.729] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 2945590f-3c00-442e-8e35-0dfc20334931
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 14:26:17.944] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c070ade, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@bb3487c, org.springframework.security.web.context.SecurityContextHolderFilter@4f2a0909, org.springframework.security.web.header.HeaderWriterFilter@23974cac, org.springframework.security.web.authentication.logout.LogoutFilter@6bbd4048, com.todis.todisweb.demo.security.JwtFilter@650997b0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62ad5f35, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e528476, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7337f87e, org.springframework.security.web.session.SessionManagementFilter@55b5ce0f, org.springframework.security.web.access.ExceptionTranslationFilter@3d6c7152, org.springframework.security.web.access.intercept.AuthorizationFilter@30b0f674]
+[2023-08-03 14:26:18.245] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 14:26:18.650] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:26:18.681] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 14:26:18.694] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 10.607 seconds (process running for 12.444)
+[2023-08-03 14:26:26.753] [INFO ] [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 14:26:26.754] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 14:26:26.756] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms
+[2023-08-03 14:26:26.877] [ERROR] [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2023-08-03T05:12:26Z. Current time: 2023-08-03T05:26:26Z, a difference of 840874 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at com.todis.todisweb.demo.security.JwtUtil.isExpired(JwtUtil.java:18)
+	at com.todis.todisweb.demo.security.JwtFilter.doFilterInternal(JwtFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2023-08-03 14:31:34.131] [ERROR] [http-nio-8080-exec-5] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2023-08-03T05:12:26Z. Current time: 2023-08-03T05:31:34Z, a difference of 1148131 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at com.todis.todisweb.demo.security.JwtUtil.isExpired(JwtUtil.java:18)
+	at com.todis.todisweb.demo.security.JwtFilter.doFilterInternal(JwtFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2023-08-03 14:36:03.031] [ERROR] [http-nio-8080-exec-8] com.todis.todisweb.demo.security.JwtFilter 인증정보가 없습니다.
+[2023-08-03 14:36:35.814] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:36:35.817] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:36:35.828] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 14:36:43.595] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 14:36:43.688] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 3764 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 14:36:43.690] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 14:36:45.312] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 14:36:45.406] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 85 ms. Found 1 JPA repository interfaces.
+[2023-08-03 14:36:46.283] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 14:36:46.295] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:36:46.298] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 14:36:46.298] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 14:36:46.460] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 14:36:46.461] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2674 ms
+[2023-08-03 14:36:46.716] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 14:36:46.805] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 14:36:46.809] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 14:36:47.088] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:36:47.317] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 14:36:47.346] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 14:36:47.781] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2fdf7da2
+[2023-08-03 14:36:47.785] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 14:36:48.361] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:36:49.512] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 14:36:49.649] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:36:50.053] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 14:36:50.372] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 14:36:50.398] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: c7b88981-e528-4b5e-b83b-694ca580d66e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 14:36:50.567] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e528476, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56728f48, org.springframework.security.web.context.SecurityContextHolderFilter@445d878c, org.springframework.security.web.header.HeaderWriterFilter@4f5d7091, org.springframework.security.web.authentication.logout.LogoutFilter@d60aa4, com.todis.todisweb.demo.security.JwtFilter@281d3ce7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@119f035f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a79a5d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fdfd984, org.springframework.security.web.session.SessionManagementFilter@1ec98548, org.springframework.security.web.access.ExceptionTranslationFilter@37c49a55, org.springframework.security.web.access.intercept.AuthorizationFilter@5e6ad84c]
+[2023-08-03 14:36:50.833] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 14:36:51.447] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:36:51.481] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 14:36:51.498] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.025 seconds (process running for 10.283)
+[2023-08-03 14:36:54.734] [INFO ] [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 14:36:54.735] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 14:36:54.737] [INFO ] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms
+[2023-08-03 14:37:22.967] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:37:22.969] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:37:22.993] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 14:37:31.823] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 14:37:31.913] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 12312 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 14:37:31.915] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 14:37:33.582] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 14:37:33.677] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interfaces.
+[2023-08-03 14:37:34.635] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 14:37:34.655] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:37:34.660] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 14:37:34.662] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 14:37:34.857] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 14:37:34.858] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2846 ms
+[2023-08-03 14:37:35.118] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 14:37:35.208] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 14:37:35.212] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 14:37:35.610] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:37:35.850] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 14:37:35.876] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 14:37:36.354] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@35554635
+[2023-08-03 14:37:36.358] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 14:37:36.872] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:37:38.107] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 14:37:38.251] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:37:38.715] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 14:37:39.094] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 14:37:39.128] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 242e1981-5dbf-4c6c-a0e0-9135fb1ac0d7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 14:37:39.325] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a106b26, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@445d878c, org.springframework.security.web.context.SecurityContextHolderFilter@554db19d, org.springframework.security.web.header.HeaderWriterFilter@2cc82c83, org.springframework.security.web.authentication.logout.LogoutFilter@128ebca1, com.todis.todisweb.demo.security.JwtFilter@16eca98a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4fe4b8b6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6aa85fcf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@119f035f, org.springframework.security.web.session.SessionManagementFilter@345d4ecb, org.springframework.security.web.access.ExceptionTranslationFilter@3763aafd, org.springframework.security.web.access.intercept.AuthorizationFilter@14f1545c]
+[2023-08-03 14:37:39.639] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 14:37:40.112] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:37:40.151] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 14:37:40.165] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.47 seconds (process running for 10.679)
+[2023-08-03 14:37:45.830] [INFO ] [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 14:37:45.831] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 14:37:45.835] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Completed initialization in 2 ms
+[2023-08-03 14:37:59.785] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:37:59.788] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:37:59.800] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+[2023-08-03 14:38:10.471] [INFO ] [background-preinit] org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 8.0.0.Final
+[2023-08-03 14:38:10.569] [INFO ] [main] com.todis.todisweb.TodisWebApplication Starting TodisWebApplication using Java 17.0.7 with PID 16584 (C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web\out\production\classes started by samsung in C:\Users\samsung\Desktop\todis-back\Todis_Server\todis-web\todis-web)
+[2023-08-03 14:38:10.571] [INFO ] [main] com.todis.todisweb.TodisWebApplication No active profile set, falling back to 1 default profile: "default"
+[2023-08-03 14:38:12.151] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-08-03 14:38:12.245] [INFO ] [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interfaces.
+[2023-08-03 14:38:13.174] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8080 (http)
+[2023-08-03 14:38:13.190] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:38:13.194] [INFO ] [main] org.apache.catalina.core.StandardService Starting service [Tomcat]
+[2023-08-03 14:38:13.194] [INFO ] [main] org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/10.1.10]
+[2023-08-03 14:38:13.346] [INFO ] [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+[2023-08-03 14:38:13.346] [INFO ] [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2674 ms
+[2023-08-03 14:38:13.657] [INFO ] [main] org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-08-03 14:38:13.742] [INFO ] [main] org.hibernate.Version HHH000412: Hibernate ORM core version 6.2.5.Final
+[2023-08-03 14:38:13.745] [INFO ] [main] org.hibernate.cfg.Environment HHH000406: Using bytecode reflection optimizer
+[2023-08-03 14:38:14.064] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:38:14.312] [INFO ] [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo No LoadTimeWeaver setup: ignoring JPA class transformer
+[2023-08-03 14:38:14.338] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+[2023-08-03 14:38:14.769] [INFO ] [main] com.zaxxer.hikari.pool.HikariPool HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e7cd0df
+[2023-08-03 14:38:14.779] [INFO ] [main] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+[2023-08-03 14:38:15.298] [INFO ] [main] org.hibernate.bytecode.internal.BytecodeProviderInitiator HHH000021: Bytecode provider name : bytebuddy
+[2023-08-03 14:38:16.467] [INFO ] [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-08-03 14:38:16.590] [INFO ] [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:38:17.075] [WARN ] [main] org.springframework.core.LocalVariableTableParameterNameDiscoverer Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.todis.todisweb.demo.repository.UserRepository
+[2023-08-03 14:38:17.422] [WARN ] [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-08-03 14:38:17.457] [WARN ] [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 09dfa52c-afe6-4099-a6cc-fdb4c0ffad51
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2023-08-03 14:38:17.724] [INFO ] [main] org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e9947af, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d60aa4, org.springframework.security.web.context.SecurityContextHolderFilter@128ebca1, org.springframework.security.web.header.HeaderWriterFilter@623c9988, org.springframework.security.web.authentication.logout.LogoutFilter@7053a864, com.todis.todisweb.demo.security.JwtFilter@30942f54, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10efb806, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67fda9fb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11d557a5, org.springframework.security.web.session.SessionManagementFilter@13e6ab86, org.springframework.security.web.access.ExceptionTranslationFilter@7d5176d6, org.springframework.security.web.access.intercept.AuthorizationFilter@57eb2555]
+[2023-08-03 14:38:18.057] [INFO ] [main] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping Adding welcome page: class path resource [static/index.html]
+[2023-08-03 14:38:18.497] [INFO ] [main] org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8080"]
+[2023-08-03 14:38:18.528] [INFO ] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8080 (http) with context path ''
+[2023-08-03 14:38:18.547] [INFO ] [main] com.todis.todisweb.TodisWebApplication Started TodisWebApplication in 9.264 seconds (process running for 10.523)
+[2023-08-03 14:46:01.432] [INFO ] [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-08-03 14:46:01.433] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+[2023-08-03 14:46:01.447] [INFO ] [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet Completed initialization in 14 ms
+[2023-08-03 14:46:20.300] [INFO ] [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-08-03 14:46:20.305] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+[2023-08-03 14:46:20.321] [INFO ] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
