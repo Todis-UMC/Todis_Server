@@ -11,6 +11,7 @@ import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.security.JwtUtil;
 import com.todis.todisweb.global.exception.ServiceException;
 import com.todis.todisweb.global.response.ErrorCode;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -25,7 +26,7 @@ import org.springframework.web.client.RestTemplate;
 
 import static com.todis.todisweb.global.response.ErrorCode.*;
 
-
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
@@ -33,7 +34,12 @@ public class UserServiceImpl implements UserService{
 
     @Value("${jwt.secret}")
     private String secretKey;
-    private Long expiredMs = 1000 * 60 * 60l;
+    @Value("${kakao.client_id}")
+    private String client_id;
+    @Value("${kakao.redirect_uri}")
+    private String redirect_uri;
+
+    private long expiredMs = 1000 * 60 * 60 * 1l;
 
 
     @Autowired
@@ -80,7 +86,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public OAuthToken getKakaoToken(String code) {
         RestTemplate rt = new RestTemplate();
-
+        log.info("환경변수 테스트 = {}", client_id);
         //헤더 오브젝트 생성
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -88,8 +94,8 @@ public class UserServiceImpl implements UserService{
         //바디 오브젝트 생성
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
-        params.add("client_id", "e963a78de4d72b6755264d91fb7bb784");
-        params.add("redirect_uri", "http://localhost:8080/user/kakao/");
+        params.add("client_id", client_id);
+        params.add("redirect_uri", redirect_uri);
         params.add("code", code);
 
         //헤더와 바디 합쳐서 오브젝트 생성

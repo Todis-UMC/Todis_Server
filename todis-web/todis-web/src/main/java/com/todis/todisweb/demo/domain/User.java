@@ -53,7 +53,6 @@ public class User {
         this.password = password;
         this.email = email;
         this.profileImageUrl = profileImageUrl;
-        this.field = field;
         this.provider = provider;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
