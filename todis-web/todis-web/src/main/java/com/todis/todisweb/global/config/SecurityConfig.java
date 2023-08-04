@@ -38,9 +38,12 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
                         .requestMatchers(
-                                new AntPathRequestMatcher("/user/**")
+                                new AntPathRequestMatcher("/user/**"),
+                                new AntPathRequestMatcher("/swagger-ui/**"),
+                                new AntPathRequestMatcher("/v3/**"),
+                                new AntPathRequestMatcher("/**", "OPTIONS")
                         )
-                        .permitAll())
+                        .permitAll().anyRequest().authenticated())
                 .csrf((csrf) -> csrf.disable())
                 .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
