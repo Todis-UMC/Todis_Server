@@ -1,28 +1,17 @@
 package com.todis.todisweb.demo.controller;
 
 import static com.todis.todisweb.global.response.SuccessCode.*;
-
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.todis.todisweb.demo.domain.KakaoProfile;
 import com.todis.todisweb.demo.domain.OAuthToken;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.UserDto;
-import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.service.UserService;
 import com.todis.todisweb.global.response.ResponseForm;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 import org.springframework.security.core.Authentication;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-
 import java.util.UUID;
 
 @RestController
@@ -71,8 +60,7 @@ public class UserController{
     public ResponseForm signout(){return null;}
 
 
-    // Get 요청 보내면 코드가 날라옴
-    //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=e963a78de4d72b6755264d91fb7bb784&redirect_uri=http://localhost:8080/user/kakao/
+   //카카오 로그인
     @GetMapping("/kakao/")
     public @ResponseBody String kakaoCallback(String code){
         //인가코드로 엑세스토큰 받아오기

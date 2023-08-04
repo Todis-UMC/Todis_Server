@@ -22,3 +22,7 @@ spring:
 
 jwt:
   secret: NiOeyFbN1Gefg9U2XM2jkeIL8XSvGP04eFqj5B30r5TcrtlSXfQ7TndvYjNvfkEKLqILn0j1SmKODO1Yw3JpBBgI3nVPEahqxeY8qbPSFGyzyEVxnl4AQcrnVneI
+
+kakao:
+  client_id: e963a78de4d72b6755264d91fb7bb784
+  redirect_uri: http://localhost:8080/user/kakao/
