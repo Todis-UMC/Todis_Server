@@ -9,11 +9,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -21,10 +24,12 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Slf4j
+@Component
 public class JwtFilter extends OncePerRequestFilter {
 
+    @Value("${jwt.secret}")
+    private String secretKey;
 
-    String secretKey = "NiOeyFbN1Gefg9U2XM2jkeIL8XSvGP04eFqj5B30r5TcrtlSXfQ7TndvYjNvfkEKLqILn0j1SmKODO1Yw3JpBBgI3nVPEahqxeY8qbPSFGyzyEVxnl4AQcrnVneI";
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException{
         final String authorization = request.getHeader("Authorization");
@@ -35,7 +40,6 @@ public class JwtFilter extends OncePerRequestFilter {
                 return;
             }
         String token = authorization.split(" ")[1];
-
         if(JwtUtil.isExpired(token, secretKey)){
             log.error("토큰이 만료되었습니다.");
             filterChain.doFilter(request, response);
