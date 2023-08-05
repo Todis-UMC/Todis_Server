@@ -1,7 +1,9 @@
 package com.todis.todisweb.demo.controller;
 
+
 import static com.todis.todisweb.global.response.SuccessCode.CHANGE_PASSWORD;
 import static com.todis.todisweb.global.response.SuccessCode.FIND_PASSWORD;
+import static com.todis.todisweb.global.response.SuccessCode.CHANGE_NICKNAME;
 import static com.todis.todisweb.global.response.SuccessCode.JOIN_SUCCESS;
 import static com.todis.todisweb.global.response.SuccessCode.LOGIN_SUCCESS;
 
@@ -48,13 +50,6 @@ public class UserController{
         return ResponseForm.success(LOGIN_SUCCESS.getCode(), LOGIN_SUCCESS.getMessage(), token);
     }
 
-    @PutMapping("/change_profile_image")
-    public ResponseForm changeProfileImage(){return null;}
-
-    @DeleteMapping("/signout")
-    public ResponseForm signout(){return null;}
-
-
    //카카오 로그인
     @GetMapping("/kakao/")
     public @ResponseBody String kakaoCallback(String code){
@@ -86,5 +81,10 @@ public class UserController{
     public  ResponseForm findPassword(@RequestBody UserDto userDto){
         userService.setTempPassword(userDto.getEmail());
         return ResponseForm.success((FIND_PASSWORD.getCode()), FIND_PASSWORD.getMessage(), null);
+      
+    @PutMapping("/change_nickname")
+    public ResponseForm changeNickname(@RequestBody UserDto userDto, Authentication authentication){
+        userService.changeNickname(authentication.getName(), userDto.getNickname());
+        return ResponseForm.success(CHANGE_NICKNAME.getCode(), CHANGE_NICKNAME.getMessage(), null);
     }
 }

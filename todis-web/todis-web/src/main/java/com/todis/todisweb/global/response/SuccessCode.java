@@ -11,6 +11,7 @@ public enum SuccessCode {
     FIND_EMAIL(200, "Find email!"),
     FIND_PASSWORD(200, "Generate Temporary Password!"),
     CHANGE_PASSWORD(200, "Change password!"),
+    CHANGE_NICKNAME(200, "Change Nickname!"),
 
     //FriendRequest
     FRIEND_REQUEST(200, "Friend Request!"),
