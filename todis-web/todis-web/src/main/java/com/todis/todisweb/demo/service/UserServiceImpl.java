@@ -1,5 +1,9 @@
 package com.todis.todisweb.demo.service;
 
+import static com.todis.todisweb.global.response.ErrorCode.ALREADY_EXISTS;
+import static com.todis.todisweb.global.response.ErrorCode.EMAIL_ALREADY_USED;
+import static com.todis.todisweb.global.response.ErrorCode.INVALID_PASSWORD;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +14,6 @@ import com.todis.todisweb.demo.dto.UserDto;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.security.JwtUtil;
 import com.todis.todisweb.global.exception.ServiceException;
-import com.todis.todisweb.global.response.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,8 +26,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-
-import static com.todis.todisweb.global.response.ErrorCode.*;
 
 @Slf4j
 @Service
@@ -59,10 +60,12 @@ public class UserServiceImpl implements UserService{
                 .email(userDto.getEmail())
                 .password(password)
                 .provider("local")
+                .gender(userDto.getGender())
+                .nickname(userDto.getNickname())
                 .build();
 
         if(userRepository.findByEmail(user.getEmail()) != null){
-            throw new ServiceException(ErrorCode.ALREADY_EXISTS);
+            throw new ServiceException(ALREADY_EXISTS);
         }
         userRepository.save(user);
     }
