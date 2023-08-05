@@ -3,6 +3,7 @@ package com.todis.todisweb.demo.service;
 import com.todis.todisweb.demo.domain.FriendList;
 import com.todis.todisweb.demo.domain.FriendRequest;
 import com.todis.todisweb.demo.domain.User;
+import com.todis.todisweb.demo.dto.FriendRequestDto;
 import com.todis.todisweb.demo.repository.FriendListRepository;
 import com.todis.todisweb.demo.repository.FriendRequestRepository;
 import com.todis.todisweb.demo.repository.UserRepository;
@@ -95,5 +96,13 @@ public class FriendRequestServiceImpl implements FriendRequestService {
 
         friendRequestRepository.deleteById(request_id);
 
+    }
+
+    public List<FriendRequestDto> friendRequestList (String user_email){
+        List<FriendRequestDto> result = null;
+        User user = userRepository.findByEmail(user_email);
+        result = friendRequestRepository.findByFriendId(user.getId());
+
+        return result;
     }
 }

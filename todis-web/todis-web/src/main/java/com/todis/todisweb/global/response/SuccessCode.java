@@ -12,14 +12,15 @@ public enum SuccessCode {
     FIND_PASSWORD(200, "Find Password!"),
 
     //FriendRequest
-    FRIEND_REQUEST(200, "Friend Request"),
-    ACCEPT_FRIEND_REQUEST(200, "Friend Request Accept"),
-    DELETE_FRIEND_REQUEST(200, "Friend Request Delete"),
+    FRIEND_REQUEST(200, "Friend Request!"),
+    ACCEPT_FRIEND_REQUEST(200, "Friend Request Accept!"),
+    DELETE_FRIEND_REQUEST(200, "Friend Request Delete!"),
+    GET_FREIND_REQUEST_LIST(200, "Get Friend Request List!"),
 
     //FreindList
-    GET_FRIEND_LIST(200, "Get Friend List"),
-    GET_FRIEND_LIST_DETAIL(200, "Get Friend List Detail"),
-    DELETE_FRIEND_LIST(200, "Delete Friend List"),
+    GET_FRIEND_LIST(200, "Get Friend List!"),
+    GET_FRIEND_LIST_DETAIL(200, "Get Friend List Detail!"),
+    DELETE_FRIEND_LIST(200, "Delete Friend List!"),
 
     //Cody
     POST_SUCCESS(200, "Post success!")
