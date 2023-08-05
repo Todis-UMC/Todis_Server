@@ -13,4 +13,6 @@ public interface UserService {
     OAuthToken getKakaoToken (String code);
     KakaoProfile getKakaoProfile(OAuthToken oAuthToken);
     String kakaoLogin(User user);
+    void setTempPassword(String email);
+    void changePassword(String email, String password);
 }
