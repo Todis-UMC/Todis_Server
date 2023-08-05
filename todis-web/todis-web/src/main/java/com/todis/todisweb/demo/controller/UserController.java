@@ -1,6 +1,9 @@
 package com.todis.todisweb.demo.controller;
 
-import static com.todis.todisweb.global.response.SuccessCode.*;
+import static com.todis.todisweb.global.response.SuccessCode.CHANGE_NICKNAME;
+import static com.todis.todisweb.global.response.SuccessCode.JOIN_SUCCESS;
+import static com.todis.todisweb.global.response.SuccessCode.LOGIN_SUCCESS;
+
 import com.todis.todisweb.demo.domain.KakaoProfile;
 import com.todis.todisweb.demo.domain.OAuthToken;
 import com.todis.todisweb.demo.domain.User;
@@ -8,11 +11,17 @@ import com.todis.todisweb.demo.dto.UserDto;
 import com.todis.todisweb.demo.service.UserService;
 import com.todis.todisweb.global.response.ResponseForm;
 import jakarta.validation.Valid;
+import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.*;
-import java.util.UUID;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
@@ -37,29 +46,6 @@ public class UserController{
         return ResponseForm.success(LOGIN_SUCCESS.getCode(), LOGIN_SUCCESS.getMessage(), token);
     }
 
-    //Todo 이메일찾기가 로그인없이 해야하는데 따로인증할 정보도 없는상태로 어떻게 구현할지
-    @GetMapping("/find_email")
-    public ResponseForm<String> findEmail(Authentication authentication){
-        return ResponseForm.success(FIND_EMAIL.getCode(), FIND_EMAIL.getMessage(), authentication.getName());
-    }
-    //Todo 비밀번호 찾기도 마찬가지 + 디코딩 할 수 없기때문에 비밀번호 재설정으로 리다이렉션
-    @GetMapping("/find_password")
-    public ResponseForm<String> findPassword(Authentication authentication){
-        String password = userService.findPassword(authentication.getName());
-        return ResponseForm.success(FIND_PASSWORD.getCode(), FIND_PASSWORD.getMessage(), password);
-    }
-
-    @PutMapping("/change_password")
-    public ResponseForm changePassword(){return null;}
-
-
-    @PutMapping("/change_profile_image")
-    public ResponseForm changeProfileImage(){return null;}
-
-    @DeleteMapping("/signout")
-    public ResponseForm signout(){return null;}
-
-
    //카카오 로그인
     @GetMapping("/kakao/")
     public @ResponseBody String kakaoCallback(String code){
@@ -79,5 +65,11 @@ public class UserController{
 
         //로그인 하면서 액세스토큰 반환
         return userService.kakaoLogin(user);
+    }
+
+    @PutMapping("/change_nickname")
+    public ResponseForm changeNickname(@RequestBody UserDto userDto, Authentication authentication){
+        userService.changeNickname(authentication.getName(), userDto.getNickname());
+        return ResponseForm.success(CHANGE_NICKNAME.getCode(), CHANGE_NICKNAME.getMessage(), null);
     }
 }

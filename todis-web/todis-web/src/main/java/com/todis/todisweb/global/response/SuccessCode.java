@@ -10,6 +10,7 @@ public enum SuccessCode {
     LOGIN_SUCCESS(200, "Login success!"),
     FIND_EMAIL(200, "Find Email!"),
     FIND_PASSWORD(200, "Find Password!"),
+    CHANGE_NICKNAME(200, "Change Nickname!"),
 
     //FriendRequest
     FRIEND_REQUEST(200, "Friend Request!"),
