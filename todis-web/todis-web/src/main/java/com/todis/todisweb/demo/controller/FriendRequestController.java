@@ -2,9 +2,11 @@ package com.todis.todisweb.demo.controller;
 
 import static com.todis.todisweb.global.response.SuccessCode.*;
 
+import com.todis.todisweb.demo.dto.FriendRequestDto;
 import com.todis.todisweb.demo.service.FriendRequestService;
 import com.todis.todisweb.demo.service.FriendRequestServiceImpl;
 import com.todis.todisweb.global.response.ResponseForm;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,4 +43,10 @@ public class FriendRequestController {
         return ResponseForm.success(DELETE_FRIEND_REQUEST.getCode(), DELETE_FRIEND_REQUEST.getMessage(), null);
     }
 
+    @GetMapping("/requestlist")
+    public ResponseForm<List<FriendRequestDto>> requestFriendList(Authentication authentication){
+        List<FriendRequestDto> friendRequestList = null;
+        friendRequestList = friendRequestService.friendRequestList(authentication.getName());
+        return ResponseForm.success(GET_FREIND_REQUEST_LIST.getCode(), GET_FREIND_REQUEST_LIST.getMessage(), friendRequestList);
+    }
 }
