@@ -1,5 +1,9 @@
 package com.todis.todisweb.demo.service;
 
+import static com.todis.todisweb.global.response.ErrorCode.EMAIL_ALREADY_USED;
+import static com.todis.todisweb.global.response.ErrorCode.ENTITY_NOT_FOUND;
+import static com.todis.todisweb.global.response.ErrorCode.INVALID_PASSWORD;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,8 +27,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-
-import static com.todis.todisweb.global.response.ErrorCode.*;
 
 @Slf4j
 @Service
@@ -75,12 +77,6 @@ public class UserServiceImpl implements UserService{
         }else{
             throw new ServiceException(INVALID_PASSWORD);
         }
-    }
-
-    @Override
-    public String findPassword(String email) {
-        User user = userRepository.findByEmail(email);
-        return user.getPassword();
     }
 
     @Override
@@ -170,5 +166,17 @@ public class UserServiceImpl implements UserService{
 
         return JwtUtil.createJwt(user.getEmail(), secretKey, expiredMs);    // 로그인을 진행하며 토큰을 반환합니다.
     }
+
+    @Override
+    public void changeNickname(String email, String nickname) {
+        User user = userRepository.findByEmail(email);
+        if(user == null){
+            throw new ServiceException(ENTITY_NOT_FOUND);
+        }
+
+        user.setNickname(nickname);
+        userRepository.save(user);
+    }
+
 }
 
