@@ -14,6 +14,10 @@ public enum SuccessCode {
     LEAVE_USER(200, "Leave use!"),
     KAKAO_LOGIN(200, "Kakao login!"),
     GOOGLE_LOGIN(200, "Google login!"),
+    GET_USER_INFO(200, "Find it!"),
+    MATCHED_PASSWORD(200, "Valid password!"),
+
+
 
     //FriendRequest
     FRIEND_REQUEST(200, "Friend Request!"),

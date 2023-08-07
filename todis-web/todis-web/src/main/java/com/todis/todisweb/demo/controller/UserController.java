@@ -4,11 +4,13 @@ package com.todis.todisweb.demo.controller;
 import static com.todis.todisweb.global.response.SuccessCode.CHANGE_NAME;
 import static com.todis.todisweb.global.response.SuccessCode.CHANGE_PASSWORD;
 import static com.todis.todisweb.global.response.SuccessCode.FIND_PASSWORD;
+import static com.todis.todisweb.global.response.SuccessCode.GET_USER_INFO;
 import static com.todis.todisweb.global.response.SuccessCode.GOOGLE_LOGIN;
 import static com.todis.todisweb.global.response.SuccessCode.JOIN_SUCCESS;
 import static com.todis.todisweb.global.response.SuccessCode.KAKAO_LOGIN;
 import static com.todis.todisweb.global.response.SuccessCode.LEAVE_USER;
 import static com.todis.todisweb.global.response.SuccessCode.LOGIN_SUCCESS;
+import static com.todis.todisweb.global.response.SuccessCode.MATCHED_PASSWORD;
 
 import com.todis.todisweb.demo.domain.GoogleProfile;
 import com.todis.todisweb.demo.domain.GoogleToken;
@@ -16,6 +18,7 @@ import com.todis.todisweb.demo.domain.KakaoProfile;
 import com.todis.todisweb.demo.domain.OAuthToken;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.UserDto;
+import com.todis.todisweb.demo.dto.UserResponseDto;
 import com.todis.todisweb.demo.service.UserService;
 import com.todis.todisweb.global.response.ResponseForm;
 import jakarta.validation.Valid;
@@ -118,5 +121,15 @@ public class UserController{
         return ResponseForm.success(GOOGLE_LOGIN.getCode(), GOOGLE_LOGIN.getMessage(), token);
     }
 
-    //https://accounts.google.com/o/oauth2/auth?client_id=606786565156-49bmfi8iicjv7cnn1159s247g5redos6.apps.googleusercontent.com&redirect_uri=http://ec2-13-209-15-210.ap-northeast-2.compute.amazonaws.com:8080/user/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.emailhttps://www.googleapis.com/auth/userinfo.profile
+    @GetMapping("/info")
+    public ResponseForm getUserInfo(Authentication authentication){
+        UserResponseDto response = userService.getUserInfo(authentication.getName());
+        return ResponseForm.success(GET_USER_INFO.getCode(), GET_USER_INFO.getMessage(), response);
+    }
+
+    @PostMapping("/compare_password")
+    public  ResponseForm compare_password(@RequestBody UserDto userDto, Authentication authentication){
+        userService.comparePassword(authentication.getName(), userDto.getPassword());
+        return ResponseForm.success(MATCHED_PASSWORD.getCode(), MATCHED_PASSWORD.getMessage(), null);
+    }
 }

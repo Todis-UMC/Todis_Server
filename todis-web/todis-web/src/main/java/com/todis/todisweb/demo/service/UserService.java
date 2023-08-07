@@ -7,6 +7,7 @@ import com.todis.todisweb.demo.domain.KakaoProfile;
 import com.todis.todisweb.demo.domain.OAuthToken;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.UserDto;
+import com.todis.todisweb.demo.dto.UserResponseDto;
 
 public interface UserService {
   
@@ -22,4 +23,7 @@ public interface UserService {
     void changePassword(String email, String password);
     void changeName(String email, String name);
     void leaveUser(String email);
+    UserResponseDto getUserInfo(String email);
+
+    void comparePassword(String email, String password);
 }

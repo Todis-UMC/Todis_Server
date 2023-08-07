@@ -4,6 +4,7 @@ import static com.todis.todisweb.global.response.ErrorCode.ALREADY_EXISTS;
 import static com.todis.todisweb.global.response.ErrorCode.EMAIL_ALREADY_USED;
 import static com.todis.todisweb.global.response.ErrorCode.ENTITY_NOT_FOUND;
 import static com.todis.todisweb.global.response.ErrorCode.INVALID_PASSWORD;
+import static com.todis.todisweb.global.response.ErrorCode.UNMATCHED_PASSWORD;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -14,6 +15,7 @@ import com.todis.todisweb.demo.domain.KakaoProfile;
 import com.todis.todisweb.demo.domain.OAuthToken;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.UserDto;
+import com.todis.todisweb.demo.dto.UserResponseDto;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.security.JwtUtil;
 import com.todis.todisweb.global.exception.ServiceException;
@@ -52,7 +54,7 @@ public class UserServiceImpl implements UserService{
     @Value("${google.redirect_uri}")
     private String google_redirect_uri;
 
-    private long expiredMs = 1000 * 60 * 60 * 1l;
+    private long expiredMs = 1000 * 60 * 60 * 6l;
 
 
     @Autowired
@@ -315,6 +317,29 @@ public class UserServiceImpl implements UserService{
         }
 
         userRepository.delete(user);
+    }
+
+    @Override
+    public UserResponseDto getUserInfo(String email) {
+        User user = userRepository.findByEmail(email);
+        if(user == null){
+            throw new ServiceException(ENTITY_NOT_FOUND);
+        }
+
+        return new UserResponseDto(user.getName(), user.getEmail());
+    }
+
+    @Override
+    public void comparePassword(String email, String password) {
+        User user = userRepository.findByEmail(email);
+        if(user == null){
+            throw new ServiceException(ENTITY_NOT_FOUND);
+        }
+        if(!passwordEncoder.matches(password, user.getPassword())){
+            throw new ServiceException(UNMATCHED_PASSWORD);
+        }
+
+
     }
 
 
