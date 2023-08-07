@@ -5,6 +5,7 @@ import static com.todis.todisweb.global.response.SuccessCode.CHANGE_PASSWORD;
 import static com.todis.todisweb.global.response.SuccessCode.FIND_PASSWORD;
 import static com.todis.todisweb.global.response.SuccessCode.CHANGE_NAME;
 import static com.todis.todisweb.global.response.SuccessCode.JOIN_SUCCESS;
+import static com.todis.todisweb.global.response.SuccessCode.LEAVE_USER;
 import static com.todis.todisweb.global.response.SuccessCode.LOGIN_SUCCESS;
 
 import com.todis.todisweb.demo.domain.KakaoProfile;
@@ -18,6 +19,7 @@ import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -85,5 +87,11 @@ public class UserController{
     public ResponseForm changeName(@RequestBody UserDto userDto, Authentication authentication){
         userService.changeName(authentication.getName(), userDto.getName());
         return ResponseForm.success(CHANGE_NAME.getCode(), CHANGE_NAME.getMessage(), null);
+    }
+
+    @DeleteMapping("/leave")
+    public ResponseForm leaveUser(Authentication authentication){
+        userService.leaveUser(authentication.getName());
+        return ResponseForm.success(LEAVE_USER.getCode(), LEAVE_USER.getMessage(), null);
     }
 }

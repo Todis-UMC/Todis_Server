@@ -11,6 +11,7 @@ public enum SuccessCode {
     FIND_PASSWORD(200, "Generate Temporary Password!"),
     CHANGE_PASSWORD(200, "Change password!"),
     CHANGE_NAME(200, "Change Name!"),
+    LEAVE_USER(200, "Leave use!"),
 
     //FriendRequest
     FRIEND_REQUEST(200, "Friend Request!"),

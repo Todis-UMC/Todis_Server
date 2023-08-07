@@ -1,11 +1,8 @@
 package com.todis.todisweb.demo.service;
 
-import static com.todis.todisweb.global.response.ErrorCode.EMAIL_ALREADY_USED;
-import static com.todis.todisweb.global.response.ErrorCode.ENTITY_NOT_FOUND;
 import static com.todis.todisweb.global.response.ErrorCode.ALREADY_EXISTS;
 import static com.todis.todisweb.global.response.ErrorCode.EMAIL_ALREADY_USED;
 import static com.todis.todisweb.global.response.ErrorCode.ENTITY_NOT_FOUND;
-import static com.todis.todisweb.global.response.ErrorCode.ALREADY_EXISTS;
 import static com.todis.todisweb.global.response.ErrorCode.INVALID_PASSWORD;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -181,9 +178,11 @@ public class UserServiceImpl implements UserService{
         if(user == null){
             throw new ServiceException(ENTITY_NOT_FOUND);
         }
+
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         String randomString = RandomStringUtils.randomAlphabetic(10);
         String tempPassword = passwordEncoder.encode(randomString);
+
         user.setPassword(tempPassword);
         userRepository.save(user);
 
@@ -191,7 +190,6 @@ public class UserServiceImpl implements UserService{
         simpleMailMessage.setSubject("Todis 비밀번호 찾기 메일입니다.");
         simpleMailMessage.setText("임시 비밀번호: "+randomString);
         javaMailSender.send(simpleMailMessage);
-
     }
 
     @Override
@@ -213,6 +211,16 @@ public class UserServiceImpl implements UserService{
         }
         user.setName(name);
         userRepository.save(user);
+    }
+
+    @Override
+    public void leaveUser(String email) {
+        User user = userRepository.findByEmail(email);
+        if(user == null){
+            throw new ServiceException(ENTITY_NOT_FOUND);
+        }
+
+        userRepository.delete(user);
     }
 }
 

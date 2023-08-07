@@ -16,4 +16,5 @@ public interface UserService {
     void setTempPassword(String email);
     void changePassword(String email, String password);
     void changeName(String email, String name);
+    void leaveUser(String email);
 }
