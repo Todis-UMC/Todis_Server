@@ -12,6 +12,8 @@ public enum SuccessCode {
     CHANGE_PASSWORD(200, "Change password!"),
     CHANGE_NAME(200, "Change Name!"),
     LEAVE_USER(200, "Leave use!"),
+    KAKAO_LOGIN(200, "Kakao login!"),
+    GOOGLE_LOGIN(200, "Google login!"),
 
     //FriendRequest
     FRIEND_REQUEST(200, "Friend Request!"),

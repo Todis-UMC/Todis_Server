@@ -1,6 +1,8 @@
 package com.todis.todisweb.demo.service;
 
 
+import com.todis.todisweb.demo.domain.GoogleProfile;
+import com.todis.todisweb.demo.domain.GoogleToken;
 import com.todis.todisweb.demo.domain.KakaoProfile;
 import com.todis.todisweb.demo.domain.OAuthToken;
 import com.todis.todisweb.demo.domain.User;
@@ -13,6 +15,9 @@ public interface UserService {
     OAuthToken getKakaoToken (String code);
     KakaoProfile getKakaoProfile(OAuthToken oAuthToken);
     String kakaoLogin(User user);
+    GoogleToken getGoogleToken(String code);
+    GoogleProfile getGoogleProfile(GoogleToken googleToken);
+    String googleLogin(User user);
     void setTempPassword(String email);
     void changePassword(String email, String password);
     void changeName(String email, String name);
