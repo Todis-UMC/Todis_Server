@@ -69,7 +69,6 @@ public class UserServiceImpl implements UserService{
                 .password(password)
                 .provider("local")
                 .gender(userDto.getGender())
-                .nickname(userDto.getNickname())
                 .build();
 
         if(userRepository.findByEmail(user.getEmail()) != null){
@@ -178,7 +177,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void setTempPassword(String email) {
-
+        User user = userRepository.findByEmail(email);
+        if(user == null){
+            throw new ServiceException(ENTITY_NOT_FOUND);
+        }
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         String randomString = RandomStringUtils.randomAlphabetic(10);
         String tempPassword = passwordEncoder.encode(randomString);
@@ -198,19 +200,18 @@ public class UserServiceImpl implements UserService{
         if(user == null){
             throw new ServiceException(ENTITY_NOT_FOUND);
         }
-
         String newPossword = passwordEncoder.encode(password);
         user.setPassword(newPossword);
         userRepository.save(user);
     }
     
     @Override
-    public void changeNickname(String email, String nickname) {
+    public void changeName(String email, String name) {
         User user = userRepository.findByEmail(email);
         if(user == null){
             throw new ServiceException(ENTITY_NOT_FOUND);
         }
-        user.setNickname(nickname);
+        user.setName(name);
         userRepository.save(user);
     }
 }

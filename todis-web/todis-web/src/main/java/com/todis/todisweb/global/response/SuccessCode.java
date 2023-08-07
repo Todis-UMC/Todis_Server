@@ -8,10 +8,9 @@ import lombok.Getter;
 public enum SuccessCode {
     JOIN_SUCCESS(200, "Join success!"),
     LOGIN_SUCCESS(200, "Login success!"),
-    FIND_EMAIL(200, "Find email!"),
     FIND_PASSWORD(200, "Generate Temporary Password!"),
     CHANGE_PASSWORD(200, "Change password!"),
-    CHANGE_NICKNAME(200, "Change Nickname!"),
+    CHANGE_NAME(200, "Change Name!"),
 
     //FriendRequest
     FRIEND_REQUEST(200, "Friend Request!"),

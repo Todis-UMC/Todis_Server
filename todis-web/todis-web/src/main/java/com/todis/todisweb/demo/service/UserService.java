@@ -15,6 +15,5 @@ public interface UserService {
     String kakaoLogin(User user);
     void setTempPassword(String email);
     void changePassword(String email, String password);
-    void changeNickname(String email, String nickname);
-  
+    void changeName(String email, String name);
 }
