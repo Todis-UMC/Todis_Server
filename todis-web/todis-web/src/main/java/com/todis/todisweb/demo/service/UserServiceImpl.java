@@ -3,6 +3,9 @@ package com.todis.todisweb.demo.service;
 import static com.todis.todisweb.global.response.ErrorCode.EMAIL_ALREADY_USED;
 import static com.todis.todisweb.global.response.ErrorCode.ENTITY_NOT_FOUND;
 import static com.todis.todisweb.global.response.ErrorCode.ALREADY_EXISTS;
+import static com.todis.todisweb.global.response.ErrorCode.EMAIL_ALREADY_USED;
+import static com.todis.todisweb.global.response.ErrorCode.ENTITY_NOT_FOUND;
+import static com.todis.todisweb.global.response.ErrorCode.ALREADY_EXISTS;
 import static com.todis.todisweb.global.response.ErrorCode.INVALID_PASSWORD;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,12 +19,15 @@ import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.security.JwtUtil;
 import com.todis.todisweb.global.exception.ServiceException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -33,7 +39,7 @@ import org.springframework.web.client.RestTemplate;
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
-
+    private final JavaMailSender javaMailSender;
     @Value("${jwt.secret}")
     private String secretKey;
     @Value("${kakao.client_id}")
@@ -45,10 +51,11 @@ public class UserServiceImpl implements UserService{
 
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder){
+    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, JavaMailSender javaMailSender){
 
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.javaMailSender = javaMailSender;
     }
 
     @Override
@@ -170,15 +177,41 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void changeNickname(String email, String nickname) {
+    public void setTempPassword(String email) {
+
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        String randomString = RandomStringUtils.randomAlphabetic(10);
+        String tempPassword = passwordEncoder.encode(randomString);
+        user.setPassword(tempPassword);
+        userRepository.save(user);
+
+        simpleMailMessage.setTo(email);
+        simpleMailMessage.setSubject("Todis 비밀번호 찾기 메일입니다.");
+        simpleMailMessage.setText("임시 비밀번호: "+randomString);
+        javaMailSender.send(simpleMailMessage);
+
+    }
+
+    @Override
+    public void changePassword(String email, String password) {
         User user = userRepository.findByEmail(email);
         if(user == null){
             throw new ServiceException(ENTITY_NOT_FOUND);
         }
 
+        String newPossword = passwordEncoder.encode(password);
+        user.setPassword(newPossword);
+        userRepository.save(user);
+    }
+    
+    @Override
+    public void changeNickname(String email, String nickname) {
+        User user = userRepository.findByEmail(email);
+        if(user == null){
+            throw new ServiceException(ENTITY_NOT_FOUND);
+        }
         user.setNickname(nickname);
         userRepository.save(user);
     }
-
 }
 

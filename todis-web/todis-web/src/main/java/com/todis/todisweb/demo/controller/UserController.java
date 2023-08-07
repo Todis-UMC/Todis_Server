@@ -1,5 +1,8 @@
 package com.todis.todisweb.demo.controller;
 
+
+import static com.todis.todisweb.global.response.SuccessCode.CHANGE_PASSWORD;
+import static com.todis.todisweb.global.response.SuccessCode.FIND_PASSWORD;
 import static com.todis.todisweb.global.response.SuccessCode.CHANGE_NICKNAME;
 import static com.todis.todisweb.global.response.SuccessCode.JOIN_SUCCESS;
 import static com.todis.todisweb.global.response.SuccessCode.LOGIN_SUCCESS;
@@ -15,6 +18,7 @@ import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -67,6 +71,17 @@ public class UserController{
         return userService.kakaoLogin(user);
     }
 
+    @PutMapping("/change_password")
+    public ResponseForm changePassword(@RequestBody UserDto userDto, Authentication authentication){
+        userService.changePassword(authentication.getName(), userDto.getPassword());
+        return ResponseForm.success(CHANGE_PASSWORD.getCode(), CHANGE_PASSWORD.getMessage(), null);
+    }
+
+    @GetMapping("/find_password")
+    public  ResponseForm findPassword(@RequestBody UserDto userDto){
+        userService.setTempPassword(userDto.getEmail());
+        return ResponseForm.success((FIND_PASSWORD.getCode()), FIND_PASSWORD.getMessage(), null);
+      
     @PutMapping("/change_nickname")
     public ResponseForm changeNickname(@RequestBody UserDto userDto, Authentication authentication){
         userService.changeNickname(authentication.getName(), userDto.getNickname());
