@@ -18,7 +18,5 @@ public class UserDto {
     @NotNull
     private String password;
     @NotNull
-    private String nickname;
-    @NotNull
     private String gender;
 }

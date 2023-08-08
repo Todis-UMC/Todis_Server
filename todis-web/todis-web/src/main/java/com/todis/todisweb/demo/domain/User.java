@@ -19,7 +19,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @DynamicInsert
 @NoArgsConstructor
-@Table(name="member")
+@Table(name="Member")
 public class User {
     // @DynamicInsert 데이터가 존재하는(null이 아닌) 필드만으로 INSERT문을 동적으로 생성함
     @Id
@@ -51,14 +51,13 @@ public class User {
     private Timestamp updatedAt;
 
     @Builder
-    public User(int id, String name, String password, String email, String gender, String nickname, String profileImageUrl, String provider, Timestamp createdAt, Timestamp updatedAt) {
+    public User(int id, String name, String password, String email, String gender, String profileImageUrl, String provider, Timestamp createdAt, Timestamp updatedAt) {
   
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
         this.gender = gender;
-        this.nickname = nickname;
         this.profileImageUrl = profileImageUrl;
         this.provider = provider;
         this.createdAt = createdAt;
