@@ -1,31 +1,48 @@
 package com.todis.todisweb.demo.service;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.todis.todisweb.demo.domain.Cody;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.CodyDto;
 import com.todis.todisweb.demo.repository.CodyRepository;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.s3.S3Uploader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 @RequiredArgsConstructor
 @Service
-public class CodyServiceImpl implements CodyService{
+public class CodyServiceImpl implements CodyService {
 
     private final CodyRepository codyRepository;
     private final UserRepository userRepository;
     private final S3Uploader s3Uploader;
+    private final AmazonS3 amazonS3;
+    @Value("${cloud.aws.s3.bucket}")
+    private String bucket;
 
     @Autowired
-    public CodyServiceImpl(S3Uploader s3Uploader, CodyRepository codyRepository, UserRepository userRepository) {
+    public CodyServiceImpl(S3Uploader s3Uploader, CodyRepository codyRepository,
+            UserRepository userRepository, AmazonS3 amazonS3) {
         this.s3Uploader = s3Uploader;
         this.codyRepository = codyRepository;
         this.userRepository = userRepository;
+        this.amazonS3 = amazonS3;
     }
 
     @Override
@@ -41,17 +58,48 @@ public class CodyServiceImpl implements CodyService{
 
     @Override
     @Transactional
-    public String updateCody(String email, MultipartFile file){
+    public List<String> updateCody(String email, MultipartFile file, MultipartFile top,
+            MultipartFile bottom, MultipartFile shoes, MultipartFile acc) {
         User user = userRepository.findByEmail(email);
         Optional<Cody> selectedCody = codyRepository.findByUserId((user.getId()));
 
-        String url = "";
-        if(file != null) {
-            url = s3Uploader.uploadImage(file);
+        String codyurl = "";
+        String topurl = "";
+        String bottomurl = "";
+        String shoesurl = "";
+        String accurl = "";
+
+        List<String> urlList = new ArrayList<>();;
+        if (file != null) {
+            codyurl = s3Uploader.uploadImage(file);
+            urlList.add(codyurl);
         }
+        if (top != null) {
+            topurl = s3Uploader.uploadImage(top);
+            urlList.add(topurl);
+        }
+        if (bottom != null) {
+            bottomurl = s3Uploader.uploadImage(bottom);
+            urlList.add(bottomurl);
+        }
+        if (shoes != null) {
+            shoesurl = s3Uploader.uploadImage(shoes);
+            urlList.add(shoesurl);
+        }
+        if (acc != null) {
+            accurl = s3Uploader.uploadImage(acc);
+            urlList.add(accurl);
+        }
+
         Cody cody = selectedCody.get();
-        cody.setImage(url);
+        cody.setImage(codyurl);
+        cody.setTopimg(topurl);
+        cody.setBottomimg(bottomurl);
+        cody.setShoesimg(shoesurl);
+        cody.setAccimg(accurl);
         codyRepository.save(cody);
-        return url;
+        return urlList;
     }
+
+
 }
