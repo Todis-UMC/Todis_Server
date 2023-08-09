@@ -7,6 +7,8 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.todis.todisweb.demo.domain.Cody;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.CodyDto;
+import com.todis.todisweb.demo.dto.CodyResponseDto;
+import com.todis.todisweb.demo.dto.FriendListDto;
 import com.todis.todisweb.demo.repository.CodyRepository;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.s3.S3Uploader;
@@ -163,5 +165,25 @@ public class CodyServiceImpl implements CodyService {
         return codyurl;
     }
 
+    @Override
+    public CodyResponseDto getCody(String email) {
+        User user = userRepository.findByEmail(email);
+        Boolean codyExists =  codyRepository.existsByUserId(user.getId());
+
+        if (codyExists == true) {
+            CodyResponseDto codyResponseDto = codyRepository.getCody(user.getId());
+            return codyResponseDto;
+        }else {
+            Cody cody = new Cody();
+            cody.setUserId(user.getId());
+            cody.setGender(user.getGender());
+            codyRepository.save(cody);
+
+            CodyResponseDto codyResponseDto = new CodyResponseDto(user.getGender());
+            return codyResponseDto;
+        }
+
+
+    }
 
 }

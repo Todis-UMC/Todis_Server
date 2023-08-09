@@ -32,7 +32,8 @@ public enum SuccessCode {
     GET_SEARCH_FRIEND_LIST(200, "Get Search Friend List!"),
 
     //Cody
-    POST_SUCCESS(200, "Post success!")
+    POST_SUCCESS(200, "Post success!"),
+    GET_CODY_SUCCESS(200,"Cody Accept!")
     ;
     // 다른 성공 코드들...
 
