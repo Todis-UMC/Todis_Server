@@ -50,30 +50,31 @@ public class CodyServiceImpl implements CodyService {
         User user = userRepository.findByEmail(email);
         Optional<Cody> selectedCody = codyRepository.findByUserId(user.getId());
 
-        Cody cody = selectedCody.get();
-        cody.setComment(comment);
-        codyRepository.save(cody);
+        if (selectedCody.isPresent()) {
+            Cody cody = selectedCody.get();
+            cody.setComment(comment);
+            codyRepository.save(cody);
+        } else {
+            return "코멘트 없음";
+        }
+
         return "comment 업데이트";
     }
 
     @Override
     @Transactional
-    public List<String> updateCody(String email, MultipartFile file, MultipartFile top,
+    public List<String> updateCody(String email,  MultipartFile top,
             MultipartFile bottom, MultipartFile shoes, MultipartFile acc) {
         User user = userRepository.findByEmail(email);
         Optional<Cody> selectedCody = codyRepository.findByUserId((user.getId()));
 
-        String codyurl = "";
         String topurl = "";
         String bottomurl = "";
         String shoesurl = "";
         String accurl = "";
 
-        List<String> urlList = new ArrayList<>();;
-        if (file != null) {
-            codyurl = s3Uploader.uploadImage(file);
-            urlList.add(codyurl);
-        }
+        List<String> urlList = new ArrayList<>();
+
         if (top != null) {
             topurl = s3Uploader.uploadImage(top);
             urlList.add(topurl);
@@ -91,14 +92,75 @@ public class CodyServiceImpl implements CodyService {
             urlList.add(accurl);
         }
 
+
         Cody cody = selectedCody.get();
-        cody.setImage(codyurl);
         cody.setTopimg(topurl);
         cody.setBottomimg(bottomurl);
         cody.setShoesimg(shoesurl);
         cody.setAccimg(accurl);
+
+
         codyRepository.save(cody);
         return urlList;
+    }
+    @Override
+    @Transactional
+    public List<String> updateminCody(String email, MultipartFile topmin,
+            MultipartFile bottommin, MultipartFile shoesmin, MultipartFile accmin) {
+        User user = userRepository.findByEmail(email);
+        Optional<Cody> selectedCody = codyRepository.findByUserId((user.getId()));
+
+        String topminurl = "";
+        String bottomminurl = "";
+        String shoesminurl = "";
+        String accminurl = "";
+
+        List<String> urlList = new ArrayList<>();
+        ;
+
+        if (topmin != null) {
+            topminurl = s3Uploader.uploadImage(topmin);
+            urlList.add(topminurl);
+        }
+        if (bottommin != null) {
+            bottomminurl = s3Uploader.uploadImage(bottommin);
+            urlList.add(bottomminurl);
+        }
+        if (shoesmin != null) {
+            shoesminurl = s3Uploader.uploadImage(shoesmin);
+            urlList.add(shoesminurl);
+        }
+        if (accmin != null) {
+            accminurl = s3Uploader.uploadImage(accmin);
+            urlList.add(accminurl);
+        }
+
+        Cody cody = selectedCody.get();
+
+        cody.setTopminimg(topminurl);
+        cody.setBottomminimg(bottomminurl);
+        cody.setShoesminimg(shoesminurl);
+        cody.setAccminimg(accminurl);
+
+        codyRepository.save(cody);
+        return urlList;
+    }
+
+    @Override
+    @Transactional
+    public String updateallCody(String email, MultipartFile file) {
+        User user = userRepository.findByEmail(email);
+        Optional<Cody> selectedCody = codyRepository.findByUserId((user.getId()));
+
+        String codyurl = "";
+        if (file != null) {
+            codyurl = s3Uploader.uploadImage(file);
+        }
+
+        Cody cody = selectedCody.get();
+        cody.setImage(codyurl);
+        codyRepository.save(cody);
+        return codyurl;
     }
 
 
