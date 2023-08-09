@@ -40,6 +40,14 @@ public class Cody {
     private String shoesimg;
     @Column(name = "accimg")
     private String accimg;
+    @Column(name = "topminimg")
+    private String topminimg;
+    @Column(name = "bottomminimg")
+    private String bottomminimg;
+    @Column(name = "shoesminimg")
+    private String shoesminimg;
+    @Column(name = "accminimg")
+    private String accminimg;
 
     @Column(name = "date")
     @CreationTimestamp
@@ -47,7 +55,7 @@ public class Cody {
 
     @Builder
     public Cody(int id, int userId, int clothId, String comment, int likes, String image,
-            Timestamp date, String topimg, String bottomimg, String shoesimg, String accimg) {
+            Timestamp date, String topimg, String bottomimg, String shoesimg, String accimg, String topminimg, String bottomminimg, String shoesminimg, String accminimg) {
         this.id = id;
         this.userId = userId;
         this.clothId = clothId;
@@ -59,5 +67,9 @@ public class Cody {
         this.bottomimg = bottomimg;
         this.shoesimg = shoesimg;
         this.accimg = accimg;
+        this.topminimg = topminimg;
+        this.bottomminimg = bottomminimg;
+        this.shoesminimg = shoesminimg;
+        this.accminimg = accminimg;
     }
 }

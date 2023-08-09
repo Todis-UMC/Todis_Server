@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -34,16 +35,34 @@ public class CodyController {
     @PostMapping(path = "/cody/image", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseForm<List<String>> postCody(
             Authentication authentication,
-            @RequestPart(value = "file", required = false) MultipartFile file,
             @RequestPart(value = "top", required = false) MultipartFile top,
             @RequestPart(value = "bottom", required = false) MultipartFile bottom,
             @RequestPart(value = "shoes", required = false) MultipartFile shoes,
-            @RequestPart(value = "acc", required = false) MultipartFile acc
-
-    ) {
-        List<String> url = codyService.updateCody(authentication.getName(), file, top, bottom, shoes, acc);
+            @RequestPart(value = "acc", required = false) MultipartFile acc) {
+        List<String> url = codyService.updateCody(authentication.getName(), top, bottom,
+                shoes, acc);
         return ResponseForm.success(POST_SUCCESS.getCode(), POST_SUCCESS.getMessage(), url);
     }
+    @PostMapping(path = "/cody/imagemin", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseForm<List<String>> postminCody(
+            Authentication authentication,
+            @RequestPart(value = "topmin", required = false) MultipartFile topmin,
+            @RequestPart(value = "bottommin", required = false) MultipartFile bottommin,
+            @RequestPart(value = "shoesmin", required = false) MultipartFile shoesmin,
+            @RequestPart(value = "accmin", required = false) MultipartFile accmin) {
+        List<String> url = codyService.updateminCody(authentication.getName(), topmin, bottommin, shoesmin, accmin);
+        return ResponseForm.success(POST_SUCCESS.getCode(), POST_SUCCESS.getMessage(), url);
+    }
+
+    @PostMapping(path = "/cody/all", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseForm postCody(
+            Authentication authentication,
+            @RequestPart(value = "file", required = false) MultipartFile file) {
+        String url = codyService.updateallCody(authentication.getName(), file);
+        return ResponseForm.success(POST_SUCCESS.getCode(), POST_SUCCESS.getMessage(), url);
+    }
+
+
 }
 
 
