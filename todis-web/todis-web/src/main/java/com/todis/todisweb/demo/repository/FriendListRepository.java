@@ -30,4 +30,6 @@ public interface FriendListRepository extends JpaRepository<FriendList, Long> {
     @Modifying
     @Transactional
     void acceptFriendList(@Param("userId") int user_id,@Param("friendId") int friend_id);
+
+    long countFriendListByUserId(int userId);
 }

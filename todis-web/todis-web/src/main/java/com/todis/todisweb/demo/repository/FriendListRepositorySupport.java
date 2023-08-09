@@ -5,7 +5,6 @@ import static com.todis.todisweb.demo.domain.QUser.user;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Projections;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.todis.todisweb.demo.domain.FriendList;
@@ -17,10 +16,10 @@ import org.springframework.stereotype.Repository;
 
 @Slf4j
 @Repository
-public class FriendListRepositorySuport extends QuerydslRepositorySupport {
+public class FriendListRepositorySupport extends QuerydslRepositorySupport {
     private final JPAQueryFactory queryFactory;
 
-    public FriendListRepositorySuport(JPAQueryFactory queryFactory) {
+    public FriendListRepositorySupport(JPAQueryFactory queryFactory) {
         super(FriendList.class);
         this.queryFactory = queryFactory;
     }
