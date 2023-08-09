@@ -4,8 +4,10 @@ package com.todis.todisweb.demo.controller;
 import static com.todis.todisweb.global.response.SuccessCode.POST_SUCCESS;
 
 import com.todis.todisweb.demo.dto.CodyDto;
+import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.service.CodyServiceImpl;
 import com.todis.todisweb.global.response.ResponseForm;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,19 +27,23 @@ public class CodyController {
 
     @PostMapping("/cody/post")
     public ResponseForm postComment(Authentication authentication, String Comment) {
-        codyService.updateComment(authentication.getName(),Comment);
+        codyService.updateComment(authentication.getName(), Comment);
         return ResponseForm.success(POST_SUCCESS.getCode(), POST_SUCCESS.getMessage(), null);
     }
 
     @PostMapping(path = "/cody/image", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseForm postCody(
+    public ResponseForm<List<String>> postCody(
             Authentication authentication,
-            @RequestPart(value = "file", required = false) MultipartFile file
-    ){
-        String url = codyService.updateCody(authentication.getName(), file);
+            @RequestPart(value = "file", required = false) MultipartFile file,
+            @RequestPart(value = "top", required = false) MultipartFile top,
+            @RequestPart(value = "bottom", required = false) MultipartFile bottom,
+            @RequestPart(value = "shoes", required = false) MultipartFile shoes,
+            @RequestPart(value = "acc", required = false) MultipartFile acc
+
+    ) {
+        List<String> url = codyService.updateCody(authentication.getName(), file, top, bottom, shoes, acc);
         return ResponseForm.success(POST_SUCCESS.getCode(), POST_SUCCESS.getMessage(), url);
     }
-
 }
 
 

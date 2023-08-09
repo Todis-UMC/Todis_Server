@@ -15,29 +15,39 @@ import java.sql.Timestamp;
 @Entity
 @DynamicInsert
 @NoArgsConstructor
-@Table(name="Cody")
+@Table(name = "Cody")
 public class Cody {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="user_id")
+    @Column(name = "user_id")
     private int userId;
-    @Column(name="cloth_id")
+    @Column(name = "cloth_id")
     private int clothId;
-    @Column(name="comment")
+    @Column(name = "comment")
     private String comment;
-    @Column(name="likes")
+    @Column(name = "likes")
     private int likes;
-    @Column(name="image")
+    @Column(name = "image")
     private String image;
+    @Column(name = "topimg")
+    private String topimg;
+    @Column(name = "bottomimg")
+    private String bottomimg;
+    @Column(name = "shoesimg")
+    private String shoesimg;
+    @Column(name = "accimg")
+    private String accimg;
 
-    @Column(name="date")
+    @Column(name = "date")
     @CreationTimestamp
     private Timestamp date;
 
     @Builder
-    public Cody(int id, int userId, int clothId, String comment, int likes, String image, Timestamp date) {
+    public Cody(int id, int userId, int clothId, String comment, int likes, String image,
+            Timestamp date, String topimg, String bottomimg, String shoesimg, String accimg) {
         this.id = id;
         this.userId = userId;
         this.clothId = clothId;
@@ -45,5 +55,9 @@ public class Cody {
         this.likes = likes;
         this.image = image;
         this.date = date;
+        this.topimg = topimg;
+        this.bottomimg = bottomimg;
+        this.shoesimg = shoesimg;
+        this.accimg = accimg;
     }
 }
