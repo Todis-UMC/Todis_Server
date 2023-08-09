@@ -2,7 +2,6 @@ package com.todis.todisweb.demo.controller;
 
 import static com.todis.todisweb.global.response.SuccessCode.*;
 
-import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.dto.FriendListDto;
 import com.todis.todisweb.demo.service.FriendListService;
@@ -10,8 +9,6 @@ import com.todis.todisweb.global.response.ResponseForm;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -42,4 +39,11 @@ public class FriendListController {
         return ResponseForm.success(DELETE_FRIEND_LIST.getCode(), DELETE_FRIEND_LIST.getMessage(), null);
     }
 
+    @GetMapping("/list/search")
+    public ResponseForm<List<FriendListDto>> getSearchFriendList(Authentication authentication, String keyword){
+        List<FriendListDto> searchFriendList = null;
+        searchFriendList = friendListService.searchFriendList(authentication.getName(), keyword);
+        return ResponseForm.success(GET_SEARCH_FRIEND_LIST.getCode(),
+                GET_SEARCH_FRIEND_LIST.getMessage(), searchFriendList);
+    }
 }

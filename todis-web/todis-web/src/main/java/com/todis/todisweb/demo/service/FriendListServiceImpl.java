@@ -5,6 +5,7 @@ import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.dto.FriendListDto;
 import com.todis.todisweb.demo.repository.FriendListRepository;
+import com.todis.todisweb.demo.repository.FriendListRepositorySuport;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.global.exception.ServiceException;
 import com.todis.todisweb.global.response.ErrorCode;
@@ -21,6 +22,8 @@ public class FriendListServiceImpl implements FriendListService{
     private FriendListRepository friendListRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private FriendListRepositorySuport friendListRepositorySuport;
 
     @Override
     public List<FriendListDto> findFriendListByUserId(String user_email) {
@@ -51,4 +54,11 @@ public class FriendListServiceImpl implements FriendListService{
         friendListRepository.deleteByUserIdAndFriendId(friend_id, user_id);
     }
 
+    @Override
+    public List<FriendListDto> searchFriendList(String user_email, String keyword){
+        List<FriendListDto> result = null;
+        int user_id = userRepository.findByEmail(user_email).getId();
+        result = friendListRepositorySuport.searchFriendList(user_id, keyword);
+        return result;
+    }
 }

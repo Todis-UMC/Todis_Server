@@ -32,8 +32,6 @@ public class User {
     private String password;
     @Column(name="email")
     private String email;
-    @Column(name="nickname")
-    private String nickname;
     @Column(name="gender")
     private String gender;
     @Column(name="profile_image_url")

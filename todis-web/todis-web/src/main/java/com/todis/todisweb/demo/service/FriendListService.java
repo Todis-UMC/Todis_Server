@@ -10,4 +10,6 @@ public interface FriendListService {
     List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email);
 
     void deleteFriendlist(String user_email, String friend_email);
+
+    List<FriendListDto> searchFriendList(String user_email, String keyword);
 }
