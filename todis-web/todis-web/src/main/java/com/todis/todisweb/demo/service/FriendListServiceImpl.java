@@ -35,11 +35,10 @@ public class FriendListServiceImpl implements FriendListService{
     }
 
     @Override
-    public List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email){
+    public List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email, int id){
         List<FriendListDetailDto> result = null;
         User user = userRepository.findByEmail(user_email);
-        result = friendListRepository.findFriendIdByUserIdDetail(user.getId());
-
+        result = friendListRepositorySupport.findFriendIdByUserIdDetail(user.getId(), id);
         return result;
     }
 

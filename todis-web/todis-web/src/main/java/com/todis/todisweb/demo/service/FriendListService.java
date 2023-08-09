@@ -8,7 +8,7 @@ import java.util.List;
 public interface FriendListService {
     List<FriendListDto> findFriendListByUserId(String user_email);
 
-    List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email);
+    List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email, int id);
 
     void deleteFriendlist(String user_email, String friend_email);
 

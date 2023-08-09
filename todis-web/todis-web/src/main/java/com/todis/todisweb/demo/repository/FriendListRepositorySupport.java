@@ -1,5 +1,6 @@
 package com.todis.todisweb.demo.repository;
 
+import static com.todis.todisweb.demo.domain.QCody.cody;
 import static com.todis.todisweb.demo.domain.QFriendList.friendList;
 import static com.todis.todisweb.demo.domain.QUser.user;
 
@@ -8,10 +9,12 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.todis.todisweb.demo.domain.FriendList;
+import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.dto.FriendListDto;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Slf4j
@@ -29,6 +32,8 @@ public class FriendListRepositorySupport extends QuerydslRepositorySupport {
 
     char[] textArr = text.toCharArray();
     char[] jamoArr = jamoRef.toCharArray();
+
+    int searchLimit = 7;
 
     public List<FriendListDto> searchFriendList(int user_id, String keyword){
         BooleanBuilder builder = new BooleanBuilder();
@@ -65,5 +70,39 @@ public class FriendListRepositorySupport extends QuerydslRepositorySupport {
                         .and(user.name.goe(keyword))
                         .and(builder))
                 .fetch();
+    }
+
+    public List<FriendListDetailDto> findFriendIdByUserIdDetail(int user_id, int id){
+        if(id==1){
+            return queryFactory
+                    .select(Projections.constructor(FriendListDetailDto.class, friendList.id, user.name, user.profileImageUrl,
+                            user.codyImage, cody.comment))
+                    .from(user, cody, friendList)
+                    .where(user.id.eq(cody.userId)
+                            .and(user.id.eq(friendList.friendId))
+                            .and(user.id.in(
+                                    JPAExpressions
+                                            .select(friendList.friendId)
+                                            .from(friendList)
+                                            .where(friendList.userId.eq(user_id))
+                            )))
+                    .limit(searchLimit)
+                    .fetch();
+        } else {
+            return queryFactory
+                    .select(Projections.constructor(FriendListDetailDto.class, friendList.id, user.name, user.profileImageUrl,
+                            user.codyImage, cody.comment))
+                    .from(user, cody, friendList)
+                    .where(user.id.eq(cody.userId)
+                            .and(user.id.eq(friendList.friendId))
+                            .and(user.id.in(
+                                    JPAExpressions
+                                            .select(friendList.friendId)
+                                            .from(friendList)
+                                            .where(friendList.userId.eq(user_id))
+                            ))
+                            .and(user.id.gt(id)))
+                    .fetch();
+        }
     }
 }
