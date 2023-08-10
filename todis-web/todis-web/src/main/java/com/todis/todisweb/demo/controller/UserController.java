@@ -89,7 +89,7 @@ public class UserController{
         return ResponseForm.success(CHANGE_PASSWORD.getCode(), CHANGE_PASSWORD.getMessage(), null);
     }
 
-    @GetMapping("/find_password")
+    @PostMapping("/find_password")
     public  ResponseForm findPassword(@RequestBody UserDto userDto){
         userService.setTempPassword(userDto.getEmail());
         return ResponseForm.success((FIND_PASSWORD.getCode()), FIND_PASSWORD.getMessage(), null);

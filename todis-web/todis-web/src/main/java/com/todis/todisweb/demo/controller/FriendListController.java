@@ -41,6 +41,7 @@ public class FriendListController {
         return ResponseForm.success(DELETE_FRIEND_LIST.getCode(), DELETE_FRIEND_LIST.getMessage(), null);
     }
 
+
     @GetMapping("/listsearch")
     public ResponseForm<FriendListSearchDto> getSearchFriendList(Authentication authentication, @Nullable String keyword){
         FriendListSearchDto searchFriendList = null;
