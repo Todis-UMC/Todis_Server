@@ -17,6 +17,10 @@ public interface CodyRepository extends JpaRepository<Cody, Long> {
 
     Boolean existsByUserId(int userid);
 
-    @Query("select new com.todis.todisweb.demo.dto.CodyResponseDto(c.topimg, c.bottomimg, c.shoesimg, c.accimg, c.topminimg, c.bottomminimg, c.shoesminimg, c.accminimg, c.gender) from Cody c where c.userId = :userId")
+    /*
+        @Query("select new com.todis.todisweb.demo.dto.CodyResponseDto(c.topimg, c.bottomimg, c.shoesimg, c.accimg, c.topminimg, c.bottomminimg, c.shoesminimg, c.accminimg, c.gender) from Cody c where c.userId = :userId")
+        CodyResponseDto getCody(@Param("userId") int user_id);
+     */
+    @Query("select new com.todis.todisweb.demo.dto.CodyResponseDto(c.topimg, c.bottomimg, c.shoesimg, c.accimg, c.topminimg, c.bottomminimg, c.shoesminimg, c.accminimg) from Cody c where c.userId = :userId")
     CodyResponseDto getCody(@Param("userId") int user_id);
 }

@@ -65,8 +65,9 @@ public class CodyServiceImpl implements CodyService {
 
     @Override
     @Transactional
-    public List<String> updateCody(String email,  MultipartFile top,
-            MultipartFile bottom, MultipartFile shoes, MultipartFile acc) {
+    public List<String> updateCody(String email, MultipartFile top,
+            MultipartFile bottom, MultipartFile shoes, MultipartFile acc, MultipartFile topmin,
+            MultipartFile bottommin, MultipartFile shoesmin, MultipartFile accmin, Boolean gender) {
         User user = userRepository.findByEmail(email);
         Optional<Cody> selectedCody = codyRepository.findByUserId((user.getId()));
 
@@ -74,6 +75,11 @@ public class CodyServiceImpl implements CodyService {
         String bottomurl = "";
         String shoesurl = "";
         String accurl = "";
+        String topminurl = "";
+        String bottomminurl = "";
+        String shoesminurl = "";
+        String accminurl = "";
+
 
         List<String> urlList = new ArrayList<>();
 
@@ -93,18 +99,39 @@ public class CodyServiceImpl implements CodyService {
             accurl = s3Uploader.uploadImage(acc);
             urlList.add(accurl);
         }
-
+        if (topmin != null) {
+            topminurl = s3Uploader.uploadImage(topmin);
+            urlList.add(topminurl);
+        }
+        if (bottommin != null) {
+            bottomminurl = s3Uploader.uploadImage(bottommin);
+            urlList.add(bottomminurl);
+        }
+        if (shoesmin != null) {
+            shoesminurl = s3Uploader.uploadImage(shoesmin);
+            urlList.add(shoesminurl);
+        }
+        if (accmin != null) {
+            accminurl = s3Uploader.uploadImage(accmin);
+            urlList.add(accminurl);
+        }
 
         Cody cody = selectedCody.get();
         cody.setTopimg(topurl);
         cody.setBottomimg(bottomurl);
         cody.setShoesimg(shoesurl);
         cody.setAccimg(accurl);
+        cody.setTopminimg(topminurl);
+        cody.setBottomminimg(bottomminurl);
+        cody.setShoesminimg(shoesminurl);
+        cody.setAccminimg(accminurl);
 
+        cody.setGender(gender != null ? gender : true);
 
         codyRepository.save(cody);
         return urlList;
     }
+/*
     @Override
     @Transactional
     public List<String> updateminCody(String email, MultipartFile topmin,
@@ -147,7 +174,7 @@ public class CodyServiceImpl implements CodyService {
         codyRepository.save(cody);
         return urlList;
     }
-
+*/
     @Override
     @Transactional
     public String updateallCody(String email, MultipartFile file) {
@@ -168,19 +195,23 @@ public class CodyServiceImpl implements CodyService {
     @Override
     public CodyResponseDto getCody(String email) {
         User user = userRepository.findByEmail(email);
-        Boolean codyExists =  codyRepository.existsByUserId(user.getId());
+        Boolean codyExists = codyRepository.existsByUserId(user.getId());
 
         if (codyExists == true) {
             CodyResponseDto codyResponseDto = codyRepository.getCody(user.getId());
             return codyResponseDto;
-        }else {
+        } else {
             Cody cody = new Cody();
             cody.setUserId(user.getId());
-            cody.setGender(user.getGender());
+            //cody.setGender(user.getGender());
             codyRepository.save(cody);
 
-            CodyResponseDto codyResponseDto = new CodyResponseDto(user.getGender());
+            /*
+            CodyResponseDto codyResponseDto = new CodyResponseDto(cody.getGender());
             return codyResponseDto;
+             */
+            return null;
+
         }
 
 

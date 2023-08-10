@@ -10,11 +10,12 @@ public interface CodyService {
     String updateComment(String email, String comment);
 
     List<String> updateCody(String email, MultipartFile top, MultipartFile bottom,
-            MultipartFile shoes, MultipartFile acc);
-
+            MultipartFile shoes, MultipartFile acc, MultipartFile topmin,
+            MultipartFile bottommin, MultipartFile shoesmin, MultipartFile accmin, Boolean gender);
+/*
     List<String> updateminCody(String email, MultipartFile topmin,
             MultipartFile bottommin, MultipartFile shoesmin, MultipartFile accmin);
-
+*/
     String updateallCody(String email, MultipartFile file);
 
     CodyResponseDto getCody(String email);
