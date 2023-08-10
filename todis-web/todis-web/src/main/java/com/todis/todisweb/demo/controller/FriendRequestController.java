@@ -1,24 +1,27 @@
 package com.todis.todisweb.demo.controller;
 
-import static com.todis.todisweb.global.response.SuccessCode.*;
+import static com.todis.todisweb.global.response.SuccessCode.ACCEPT_FRIEND_REQUEST;
+import static com.todis.todisweb.global.response.SuccessCode.DELETE_FRIEND_REQUEST;
+import static com.todis.todisweb.global.response.SuccessCode.FRIEND_REQUEST;
+import static com.todis.todisweb.global.response.SuccessCode.GET_FREIND_REQUEST_LIST;
 
 import com.todis.todisweb.demo.dto.FriendRequestDto;
 import com.todis.todisweb.demo.service.FriendRequestService;
-import com.todis.todisweb.demo.service.FriendRequestServiceImpl;
 import com.todis.todisweb.global.response.ResponseForm;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/friend")
+@CrossOrigin
 public class FriendRequestController {
 
     @Autowired
