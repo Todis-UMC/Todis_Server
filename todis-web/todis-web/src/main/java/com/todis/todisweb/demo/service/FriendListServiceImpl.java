@@ -1,11 +1,11 @@
 package com.todis.todisweb.demo.service;
 
-import com.todis.todisweb.demo.domain.FriendList;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.dto.FriendListDto;
+import com.todis.todisweb.demo.dto.FriendListSearchDto;
 import com.todis.todisweb.demo.repository.FriendListRepository;
-import com.todis.todisweb.demo.repository.FriendListRepositorySuport;
+import com.todis.todisweb.demo.repository.FriendListRepositorySupport;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.global.exception.ServiceException;
 import com.todis.todisweb.global.response.ErrorCode;
@@ -23,7 +23,7 @@ public class FriendListServiceImpl implements FriendListService{
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private FriendListRepositorySuport friendListRepositorySuport;
+    private FriendListRepositorySupport friendListRepositorySupport;
 
     @Override
     public List<FriendListDto> findFriendListByUserId(String user_email) {
@@ -35,11 +35,10 @@ public class FriendListServiceImpl implements FriendListService{
     }
 
     @Override
-    public List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email){
+    public List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email, int id){
         List<FriendListDetailDto> result = null;
         User user = userRepository.findByEmail(user_email);
-        result = friendListRepository.findFriendIdByUserIdDetail(user.getId());
-
+        result = friendListRepositorySupport.findFriendIdByUserIdDetail(user.getId(), id);
         return result;
     }
 
@@ -55,10 +54,16 @@ public class FriendListServiceImpl implements FriendListService{
     }
 
     @Override
-    public List<FriendListDto> searchFriendList(String user_email, String keyword){
-        List<FriendListDto> result = null;
+    public FriendListSearchDto searchFriendList(String user_email, String keyword){
         int user_id = userRepository.findByEmail(user_email).getId();
-        result = friendListRepositorySuport.searchFriendList(user_id, keyword);
-        return result;
+        List<FriendListDto> searchList = null;
+        if(keyword==null){
+            searchList = friendListRepository.findFriendIdByUserId(user_id);
+        } else{
+            searchList = friendListRepositorySupport.searchFriendList(user_id, keyword);
+        }
+        long count = friendListRepository.countFriendListByUserId(user_id);
+        FriendListSearchDto friendListSearchDto = new FriendListSearchDto(count, searchList);
+        return friendListSearchDto;
     }
 }

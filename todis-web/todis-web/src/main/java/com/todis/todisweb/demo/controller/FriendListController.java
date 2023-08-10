@@ -4,8 +4,10 @@ import static com.todis.todisweb.global.response.SuccessCode.*;
 
 import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.dto.FriendListDto;
+import com.todis.todisweb.demo.dto.FriendListSearchDto;
 import com.todis.todisweb.demo.service.FriendListService;
 import com.todis.todisweb.global.response.ResponseForm;
+import jakarta.annotation.Nullable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -26,9 +28,9 @@ public class FriendListController {
     }
 
     @GetMapping("/listdetail")
-    public ResponseForm<List<FriendListDetailDto>> getFriendListDetail(Authentication authentication){
+    public ResponseForm<List<FriendListDetailDto>> getFriendListDetail(Authentication authentication, int id){
         List<FriendListDetailDto> friendListDetail = null;
-        friendListDetail = friendListService.findFriendListByUserIdDetail(authentication.getName());
+        friendListDetail = friendListService.findFriendListByUserIdDetail(authentication.getName(), id);
         return ResponseForm.success(GET_FRIEND_LIST_DETAIL.getCode(),
                 GET_FRIEND_LIST_DETAIL.getMessage(), friendListDetail);
     }
@@ -39,9 +41,10 @@ public class FriendListController {
         return ResponseForm.success(DELETE_FRIEND_LIST.getCode(), DELETE_FRIEND_LIST.getMessage(), null);
     }
 
-    @GetMapping("/list/search")
-    public ResponseForm<List<FriendListDto>> getSearchFriendList(Authentication authentication, String keyword){
-        List<FriendListDto> searchFriendList = null;
+
+    @GetMapping("/listsearch")
+    public ResponseForm<FriendListSearchDto> getSearchFriendList(Authentication authentication, @Nullable String keyword){
+        FriendListSearchDto searchFriendList = null;
         searchFriendList = friendListService.searchFriendList(authentication.getName(), keyword);
         return ResponseForm.success(GET_SEARCH_FRIEND_LIST.getCode(),
                 GET_SEARCH_FRIEND_LIST.getMessage(), searchFriendList);
