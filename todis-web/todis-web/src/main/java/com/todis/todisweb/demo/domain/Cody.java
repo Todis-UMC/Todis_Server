@@ -49,13 +49,17 @@ public class Cody {
     @Column(name = "accminimg")
     private String accminimg;
 
+    @Column(name = "gender")
+    private Boolean gender;
+
     @Column(name = "date")
     @CreationTimestamp
     private Timestamp date;
 
     @Builder
     public Cody(int id, int userId, int clothId, String comment, int likes, String image,
-            Timestamp date, String topimg, String bottomimg, String shoesimg, String accimg, String topminimg, String bottomminimg, String shoesminimg, String accminimg) {
+            Timestamp date, String topimg, String bottomimg, String shoesimg, String accimg,
+            String topminimg, String bottomminimg, String shoesminimg, String accminimg, Boolean gender) {
         this.id = id;
         this.userId = userId;
         this.clothId = clothId;
@@ -71,5 +75,6 @@ public class Cody {
         this.bottomminimg = bottomminimg;
         this.shoesminimg = shoesminimg;
         this.accminimg = accminimg;
+        this.gender = gender;
     }
 }
