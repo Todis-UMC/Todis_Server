@@ -40,9 +40,7 @@ public class SecurityConfig {
                                 new AntPathRequestMatcher("/swagger-ui/**"),
                                 new AntPathRequestMatcher("/v3/**"),
                                 new AntPathRequestMatcher("/**", "OPTIONS"),
-                                new AntPathRequestMatcher("/cody"),
-                                new AntPathRequestMatcher("/cody/all"),
-                                new AntPathRequestMatcher("/cody/image")
+                                new AntPathRequestMatcher("/cody/**")
                         )
                         .permitAll().anyRequest().authenticated())
                 .csrf((csrf) -> csrf.disable())
