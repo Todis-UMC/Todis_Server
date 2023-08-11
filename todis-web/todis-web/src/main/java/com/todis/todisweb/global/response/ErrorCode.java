@@ -23,7 +23,12 @@ public enum ErrorCode {
 
     // FriendRequest
     REQUEST_NOT_EXISTS(400, "해당 친구 요청이 존재하지 않습니다."),
-    REAUEST_ALREADY_EXISTS(400, "해당 친구 요청이 이미 존재합니다."),
+    REQUEST_ALREADY_EXISTS(400, "해당 친구 요청이 이미 존재합니다."),
+    REQUEST_ALREADY_ACCEPTED(400, "해당 친구 요청을 이미 승낙했습니다."),
+    USER_NOT_EXISTS(400, "해당 유저가 없습니다."),
+
+    // FriendList
+    FRIEND_NOT_EXISTS(400, "해당 친구가 존재하지 않습니다"),
 
     ;
 

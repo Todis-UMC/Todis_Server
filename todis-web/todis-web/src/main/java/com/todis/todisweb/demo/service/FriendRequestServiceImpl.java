@@ -29,10 +29,16 @@ public class FriendRequestServiceImpl implements FriendRequestService {
 
     @Override
     public void FriendRequestUserIdToFriendId(String user_email, String friend_email) {
+
+        if (userRepository.existsByEmail(friend_email)){
+            throw new ServiceException(ErrorCode.USER_NOT_EXISTS);
+        }
+
         int user_id = userRepository.findByEmail(user_email).getId();
         int friend_id = userRepository.findByEmail(friend_email).getId();
+
         if (friendRequestRepository.existsByUserIdAndFriendId(user_id, friend_id)) {
-            throw new ServiceException(ErrorCode.REAUEST_ALREADY_EXISTS);
+            throw new ServiceException(ErrorCode.REQUEST_ALREADY_EXISTS);
         }
 
         FriendRequest friendRequest = new FriendRequest();
@@ -51,7 +57,12 @@ public class FriendRequestServiceImpl implements FriendRequestService {
             throw new ServiceException(ErrorCode.REQUEST_NOT_EXISTS);
         }
 
-        FriendRequest friendRequest= findFriendRequest.get();
+        FriendRequest friendRequest = findFriendRequest.get();
+
+        if (friendRequest.getIsAllowed() == true) {
+            throw new ServiceException(ErrorCode.REQUEST_ALREADY_ACCEPTED);
+        }
+
         int user_id = friendRequest.getUserId();
         int friend_id = friendRequest.getFriendId();
 
@@ -71,7 +82,12 @@ public class FriendRequestServiceImpl implements FriendRequestService {
             throw new ServiceException(ErrorCode.REQUEST_NOT_EXISTS);
         }
 
-        FriendRequest friendRequest= findFriendRequest.get();
+        FriendRequest friendRequest = findFriendRequest.get();
+
+        if (friendRequest.getIsAllowed() == true) {
+            throw new ServiceException(ErrorCode.REQUEST_ALREADY_ACCEPTED);
+        }
+
         int user_id = friendRequest.getUserId();
         int friend_id = friendRequest.getFriendId();
 
@@ -86,7 +102,6 @@ public class FriendRequestServiceImpl implements FriendRequestService {
     }
 
 
-
     public void FriendRequestDelete(long request_id) {
         Optional<FriendRequest> findFriendRequest = friendRequestRepository.findById(request_id);
 
@@ -98,7 +113,7 @@ public class FriendRequestServiceImpl implements FriendRequestService {
 
     }
 
-    public List<FriendRequestDto> friendRequestList (String user_email){
+    public List<FriendRequestDto> friendRequestList(String user_email) {
         List<FriendRequestDto> result = null;
         User user = userRepository.findByEmail(user_email);
         result = friendRequestRepository.findByFriendId(user.getId());
