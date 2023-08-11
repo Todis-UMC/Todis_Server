@@ -47,7 +47,7 @@ public class FriendListServiceImpl implements FriendListService{
         int user_id = userRepository.findByEmail(user_email).getId();
         int friend_id = userRepository.findByEmail(friend_email).getId();
         if (!friendListRepository.existsByUserIdAndFriendId(user_id, friend_id)){
-            throw new ServiceException(ErrorCode.ALREADY_EXISTS);
+            throw new ServiceException(ErrorCode.FRIEND_NOT_EXISTS);
         }
         friendListRepository.deleteByUserIdAndFriendId(user_id, friend_id);
         friendListRepository.deleteByUserIdAndFriendId(friend_id, user_id);
