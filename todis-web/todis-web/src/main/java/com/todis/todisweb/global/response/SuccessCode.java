@@ -30,6 +30,7 @@ public enum SuccessCode {
     GET_FRIEND_LIST_DETAIL(200, "Get Friend List Detail!"),
     DELETE_FRIEND_LIST(200, "Delete Friend List!"),
     GET_SEARCH_FRIEND_LIST(200, "Get Search Friend List!"),
+    GET_USERINFO_IN_FRIENDLIST(200, "Get User Info In Friend List!"),
 
     //Cody
     POST_SUCCESS(200, "Post success!"),

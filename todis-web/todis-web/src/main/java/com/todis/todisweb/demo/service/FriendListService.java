@@ -13,4 +13,6 @@ public interface FriendListService {
     void deleteFriendlist(String user_email, String friend_email);
 
     FriendListSearchDto searchFriendList(String user_email, String keyword);
+
+    FriendListDetailDto UserInfoInFriendList(String user_email);
 }
