@@ -25,29 +25,43 @@ public class FriendListController {
     public ResponseForm<List<FriendListDto>> getFriendList(Authentication authentication) {
         List<FriendListDto> friendList = null;
         friendList = friendListService.findFriendListByUserId(authentication.getName());
-        return ResponseForm.success(GET_FRIEND_LIST.getCode(), GET_FRIEND_LIST.getMessage(), friendList);
+        return ResponseForm.success(GET_FRIEND_LIST.getCode(), GET_FRIEND_LIST.getMessage(),
+                friendList);
     }
 
     @GetMapping("/listdetail")
-    public ResponseForm<List<FriendListDetailDto>> getFriendListDetail(Authentication authentication, int id){
+    public ResponseForm<List<FriendListDetailDto>> getFriendListDetail(
+            Authentication authentication, int id) {
         List<FriendListDetailDto> friendListDetail = null;
-        friendListDetail = friendListService.findFriendListByUserIdDetail(authentication.getName(), id);
+        friendListDetail = friendListService.findFriendListByUserIdDetail(authentication.getName(),
+                id);
         return ResponseForm.success(GET_FRIEND_LIST_DETAIL.getCode(),
                 GET_FRIEND_LIST_DETAIL.getMessage(), friendListDetail);
     }
 
     @DeleteMapping("/listdelete")
-    public ResponseForm deleteFriend(Authentication authentication, String friend_email){
+    public ResponseForm deleteFriend(Authentication authentication, String friend_email) {
         friendListService.deleteFriendlist(authentication.getName(), friend_email);
-        return ResponseForm.success(DELETE_FRIEND_LIST.getCode(), DELETE_FRIEND_LIST.getMessage(), null);
+        return ResponseForm.success(DELETE_FRIEND_LIST.getCode(), DELETE_FRIEND_LIST.getMessage(),
+                null);
     }
 
 
     @GetMapping("/listsearch")
-    public ResponseForm<FriendListSearchDto> getSearchFriendList(Authentication authentication, @Nullable String keyword){
+    public ResponseForm<FriendListSearchDto> getSearchFriendList(Authentication authentication,
+            @Nullable String keyword) {
         FriendListSearchDto searchFriendList = null;
         searchFriendList = friendListService.searchFriendList(authentication.getName(), keyword);
         return ResponseForm.success(GET_SEARCH_FRIEND_LIST.getCode(),
                 GET_SEARCH_FRIEND_LIST.getMessage(), searchFriendList);
+    }
+
+    @GetMapping("/listuser")
+    public ResponseForm<FriendListDetailDto> getUserinfoInFriendList(
+            Authentication authentication) {
+        FriendListDetailDto userInfo = null;
+        userInfo = friendListService.UserInfoInFriendList(authentication.getName());
+        return ResponseForm.success(GET_USERINFO_IN_FRIENDLIST.getCode(),
+                GET_USERINFO_IN_FRIENDLIST.getMessage(), userInfo);
     }
 }

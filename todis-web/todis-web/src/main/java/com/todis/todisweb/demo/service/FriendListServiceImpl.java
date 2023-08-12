@@ -1,5 +1,6 @@
 package com.todis.todisweb.demo.service;
 
+import com.todis.todisweb.demo.domain.FriendList;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.dto.FriendListDto;
@@ -65,5 +66,14 @@ public class FriendListServiceImpl implements FriendListService{
         long count = friendListRepository.countFriendListByUserId(user_id);
         FriendListSearchDto friendListSearchDto = new FriendListSearchDto(count, searchList);
         return friendListSearchDto;
+    }
+
+    @Override
+    public FriendListDetailDto UserInfoInFriendList(String user_email){
+        int user_id = userRepository.findByEmail(user_email).getId();
+
+        FriendListDetailDto userInfo = null;
+        userInfo = friendListRepository.getUserInfo(user_id);
+        return userInfo;
     }
 }
