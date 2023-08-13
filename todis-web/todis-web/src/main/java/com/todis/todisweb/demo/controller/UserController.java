@@ -62,7 +62,7 @@ public class UserController{
     }
 
    //카카오 로그인
-    @GetMapping("/kakao/")
+    @GetMapping("/kakao")
     public @ResponseBody ResponseForm kakaoCallback(String code){
         //인가코드로 엑세스토큰 받아오기
         OAuthToken oAuthToken = userService.getKakaoToken(code);
