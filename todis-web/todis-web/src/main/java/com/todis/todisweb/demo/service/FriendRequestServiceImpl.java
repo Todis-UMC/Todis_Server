@@ -30,7 +30,7 @@ public class FriendRequestServiceImpl implements FriendRequestService {
     @Override
     public void FriendRequestUserIdToFriendId(String user_email, String friend_email) {
 
-        if (userRepository.existsByEmail(friend_email)){
+        if (!userRepository.existsByEmail(friend_email)){
             throw new ServiceException(ErrorCode.USER_NOT_EXISTS);
         }
 
