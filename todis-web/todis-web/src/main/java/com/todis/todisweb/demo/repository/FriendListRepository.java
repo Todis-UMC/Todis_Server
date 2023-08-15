@@ -30,6 +30,6 @@ public interface FriendListRepository extends JpaRepository<FriendList, Long> {
 
     long countFriendListByUserId(int user_id);
 
-    @Query("select new com.todis.todisweb.demo.dto.FriendListDetailDto(u.id, u.name, u.profileImageUrl, u.codyImage, c.comment) from User u, Cody c where u.id = c.userId and u.id = :user_id")
+    @Query("select new com.todis.todisweb.demo.dto.FriendListDetailDto(u.id, u.name, u.profileImageUrl, u.codyImage, u.comment) from User u where u.id = :user_id")
     FriendListDetailDto getUserInfo(int user_id);
 }

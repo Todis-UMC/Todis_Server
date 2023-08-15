@@ -26,8 +26,6 @@ public class Cody {
     private int userId;
     @Column(name = "cloth_id")
     private int clothId;
-    @Column(name = "comment")
-    private String comment;
     @Column(name = "likes")
     private int likes;
     @Column(name = "image")
@@ -57,13 +55,13 @@ public class Cody {
     private Timestamp date;
 
     @Builder
-    public Cody(int id, int userId, int clothId, String comment, int likes, String image,
+    public Cody(int id, int userId, int clothId, int likes, String image,
             Timestamp date, String topimg, String bottomimg, String shoesimg, String accimg,
-            String topminimg, String bottomminimg, String shoesminimg, String accminimg, Boolean gender) {
+            String topminimg, String bottomminimg, String shoesminimg, String accminimg,
+            Boolean gender) {
         this.id = id;
         this.userId = userId;
         this.clothId = clothId;
-        this.comment = comment;
         this.likes = likes;
         this.image = image;
         this.date = date;

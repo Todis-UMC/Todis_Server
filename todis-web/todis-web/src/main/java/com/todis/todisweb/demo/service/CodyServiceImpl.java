@@ -50,15 +50,9 @@ public class CodyServiceImpl implements CodyService {
     @Override
     public String updateComment(String email, String comment) {
         User user = userRepository.findByEmail(email);
-        Optional<Cody> selectedCody = codyRepository.findByUserId(user.getId());
 
-        if (selectedCody.isPresent()) {
-            Cody cody = selectedCody.get();
-            cody.setComment(comment);
-            codyRepository.save(cody);
-        } else {
-            return "코멘트 없음";
-        }
+        user.setComment(comment);
+        userRepository.save(user);
 
         return "comment 업데이트";
     }

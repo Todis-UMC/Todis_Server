@@ -19,38 +19,44 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @DynamicInsert
 @NoArgsConstructor
-@Table(name="Member")
+@Table(name = "Member")
 public class User {
+
     // @DynamicInsert 데이터가 존재하는(null이 아닌) 필드만으로 INSERT문을 동적으로 생성함
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
-    @Column(name="gender")
+    @Column(name = "gender")
     private String gender;
-    @Column(name="profile_image_url")
+    @Column(name = "profile_image_url")
     private String profileImageUrl;
-    @Column(name="cody_image")
+    @Column(name = "cody_image")
     private String codyImage;
-    @Column(name="provider")
+    @Column(name = "provider")
     private String provider;
-    @Column(name="created_at")
+    @Column(name = "comment")
+    private String comment;
+
+    @Column(name = "created_at")
     @CreationTimestamp
     private Timestamp createdAt;
 
-    @Column(name="updated_at")
+    @Column(name = "updated_at")
     @UpdateTimestamp
     private Timestamp updatedAt;
 
     @Builder
-    public User(int id, String name, String password, String email, String gender, String profileImageUrl, String provider, Timestamp createdAt, Timestamp updatedAt) {
-  
+    public User(int id, String name, String password, String email, String gender,
+            String profileImageUrl, String provider, String comment, Timestamp createdAt,
+            Timestamp updatedAt) {
+
         this.id = id;
         this.name = name;
         this.password = password;
@@ -58,6 +64,7 @@ public class User {
         this.gender = gender;
         this.profileImageUrl = profileImageUrl;
         this.provider = provider;
+        this.comment = comment;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }

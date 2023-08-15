@@ -18,7 +18,7 @@ public class FriendListDetailDto {
         this.name = user.getName();
         this.profileImageUrl = user.getProfileImageUrl();
         this.codyImage = user.getCodyImage();
-        this.comment = cody.getComment();
+        this.comment = user.getComment();
     }
 
     public FriendListDetailDto(int id, String name, String profileImageUrl, String codyImage,
