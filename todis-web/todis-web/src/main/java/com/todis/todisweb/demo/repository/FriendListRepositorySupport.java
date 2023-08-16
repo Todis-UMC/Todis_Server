@@ -33,7 +33,7 @@ public class FriendListRepositorySupport extends QuerydslRepositorySupport {
     char[] textArr = text.toCharArray();
     char[] jamoArr = jamoRef.toCharArray();
 
-    int searchLimit = 7;
+    int searchLimit = 6;
 
     public List<FriendListDto> searchFriendList(int user_id, String keyword){
         BooleanBuilder builder = new BooleanBuilder();
@@ -59,7 +59,7 @@ public class FriendListRepositorySupport extends QuerydslRepositorySupport {
         builder.and(user.name.loe(endKeyword));
         log.info("Search Friend from " + keyword + " to " + endKeyword);
         return queryFactory
-                .select(Projections.constructor(FriendListDto.class, user.name, user.profileImageUrl))
+                .select(Projections.constructor(FriendListDto.class, user.name, user.email, user.profileImageUrl))
                 .from(user)
                 .where(user.id.in(
                         JPAExpressions
