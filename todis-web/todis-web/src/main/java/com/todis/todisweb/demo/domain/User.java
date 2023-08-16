@@ -40,6 +40,8 @@ public class User {
     private String codyImage;
     @Column(name="provider")
     private String provider;
+    @Column(name="comment")
+    private String comment;
     @Column(name="created_at")
     @CreationTimestamp
     private Timestamp createdAt;
