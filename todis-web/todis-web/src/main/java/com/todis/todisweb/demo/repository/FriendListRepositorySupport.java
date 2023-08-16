@@ -76,10 +76,9 @@ public class FriendListRepositorySupport extends QuerydslRepositorySupport {
         if(id==1){
             return queryFactory
                     .select(Projections.constructor(FriendListDetailDto.class, friendList.id, user.name, user.profileImageUrl,
-                            user.codyImage, cody.comment))
-                    .from(user, cody, friendList)
-                    .where(user.id.eq(cody.userId)
-                            .and(user.id.eq(friendList.friendId))
+                            user.codyImage, user.comment))
+                    .from(user, friendList)
+                    .where(user.id.eq(friendList.friendId)
                             .and(user.id.in(
                                     JPAExpressions
                                             .select(friendList.friendId)
@@ -91,10 +90,9 @@ public class FriendListRepositorySupport extends QuerydslRepositorySupport {
         } else {
             return queryFactory
                     .select(Projections.constructor(FriendListDetailDto.class, friendList.id, user.name, user.profileImageUrl,
-                            user.codyImage, cody.comment))
-                    .from(user, cody, friendList)
-                    .where(user.id.eq(cody.userId)
-                            .and(user.id.eq(friendList.friendId))
+                            user.codyImage, user.comment))
+                    .from(user, friendList)
+                    .where(user.id.eq(friendList.friendId)
                             .and(user.id.in(
                                     JPAExpressions
                                             .select(friendList.friendId)
