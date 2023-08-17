@@ -15,10 +15,11 @@ public class CodyResponseDto {
     private String bottomminimg;
     private String shoesminimg;
     private String accminimg;
-    //private String gender;
+    private Boolean gender;
 
     public CodyResponseDto(String topimg, String bottomimg, String shoesimg, String accimg,
-            String topminimg, String bottomminimg, String shoesminimg, String accminimg){
+            String topminimg, String bottomminimg, String shoesminimg, String accminimg,
+            Boolean gender) {
         this.topimg = topimg;
         this.bottomimg = bottomimg;
         this.shoesimg = shoesimg;
@@ -27,7 +28,7 @@ public class CodyResponseDto {
         this.bottomminimg = bottomminimg;
         this.shoesminimg = shoesminimg;
         this.accminimg = accminimg;
-        //this.gender = gender;
+        this.gender = gender;
     }
     /*
     public CodyResponseDto(String gender){

@@ -4,6 +4,7 @@ package com.todis.todisweb.demo.controller;
 import static com.todis.todisweb.global.response.SuccessCode.GET_CODY_SUCCESS;
 import static com.todis.todisweb.global.response.SuccessCode.POST_SUCCESS;
 
+import com.todis.todisweb.demo.dto.CodyImageDto;
 import com.todis.todisweb.demo.dto.CodyResponseDto;
 import com.todis.todisweb.demo.service.CodyServiceImpl;
 import com.todis.todisweb.global.response.ResponseForm;
@@ -67,12 +68,23 @@ public class CodyController {
         return ResponseForm.success(POST_SUCCESS.getCode(), POST_SUCCESS.getMessage(), url);
     }
 
-    @GetMapping("/cody")
-    public ResponseForm<CodyResponseDto> getCody(Authentication authentication) {
+    @GetMapping("/cody/getall")
+    public ResponseForm<CodyResponseDto> getallCody(Authentication authentication) {
         CodyResponseDto cody = null;
-        cody = codyService.getCody(authentication.getName());
+        cody = codyService.getallCody(authentication.getName());
 
-        CodyResponseDto codyResponseDto = codyService.getCody(authentication.getName());
+        CodyResponseDto codyResponseDto = codyService.getallCody(authentication.getName());
+
+        return ResponseForm.success(GET_CODY_SUCCESS.getCode(), GET_CODY_SUCCESS.getMessage(),
+                cody);
+    }
+
+    @GetMapping("/cody/getimage")
+    public ResponseForm<CodyImageDto> getCody(Authentication authentication) {
+        CodyImageDto cody = null;
+        cody = codyService.getImageCody(authentication.getName());
+
+        CodyImageDto codyImageDto = codyService.getImageCody(authentication.getName());
 
         return ResponseForm.success(GET_CODY_SUCCESS.getCode(), GET_CODY_SUCCESS.getMessage(),
                 cody);
