@@ -1,6 +1,6 @@
 package com.todis.todisweb.demo.service;
 
-import com.todis.todisweb.demo.dto.CodyDto;
+import com.todis.todisweb.demo.dto.CodyImageDto;
 import com.todis.todisweb.demo.dto.CodyResponseDto;
 import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,5 +18,7 @@ public interface CodyService {
 */
     String updateallCody(String email, MultipartFile file);
 
-    CodyResponseDto getCody(String email);
+    CodyResponseDto getallCody(String email);
+
+    CodyImageDto getImageCody(String email);
 }

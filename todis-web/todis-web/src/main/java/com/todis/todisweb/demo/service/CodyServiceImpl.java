@@ -1,31 +1,22 @@
 package com.todis.todisweb.demo.service;
 
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.todis.todisweb.demo.domain.Cody;
 import com.todis.todisweb.demo.domain.User;
-import com.todis.todisweb.demo.dto.CodyDto;
+import com.todis.todisweb.demo.dto.CodyImageDto;
 import com.todis.todisweb.demo.dto.CodyResponseDto;
-import com.todis.todisweb.demo.dto.FriendListDto;
 import com.todis.todisweb.demo.repository.CodyRepository;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.s3.S3Uploader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.server.ResponseStatusException;
 
 @RequiredArgsConstructor
 @Service
@@ -193,7 +184,7 @@ public class CodyServiceImpl implements CodyService {
     }
 
     @Override
-    public CodyResponseDto getCody(String email) {
+    public CodyResponseDto getallCody(String email) {
         User user = userRepository.findByEmail(email);
         Boolean codyExists = codyRepository.existsByUserId(user.getId());
 
@@ -209,9 +200,28 @@ public class CodyServiceImpl implements CodyService {
             /*
             CodyResponseDto codyResponseDto = new CodyResponseDto(cody.getGender());
             return codyResponseDto;
-             */
+            */
             return null;
+        }
 
+
+    }
+
+    @Override
+    public CodyImageDto getImageCody(String email) {
+        User user = userRepository.findByEmail(email);
+        Boolean codyExists = codyRepository.existsByUserId(user.getId());
+
+        if (codyExists == true) {
+            CodyImageDto codyImageDto = codyRepository.getImageCody(user.getId());
+            return codyImageDto;
+        } else {
+            Cody cody = new Cody();
+            cody.setUserId(user.getId());
+            //cody.setGender(user.getGender());
+            codyRepository.save(cody);
+
+            return null;
         }
 
 
