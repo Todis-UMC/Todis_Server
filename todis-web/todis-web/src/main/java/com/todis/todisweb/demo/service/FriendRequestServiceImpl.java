@@ -40,6 +40,9 @@ public class FriendRequestServiceImpl implements FriendRequestService {
         if (friendRequestRepository.existsByUserIdAndFriendId(user_id, friend_id)) {
             throw new ServiceException(ErrorCode.REQUEST_ALREADY_EXISTS);
         }
+        if (friendRequestRepository.existsByUserIdAndFriendId(friend_id, user_id)) {
+            throw new ServiceException(ErrorCode.REQUEST_ALREADY_EXISTS);
+        }
 
         FriendRequest friendRequest = new FriendRequest();
         friendRequest.setUserId(user_id);

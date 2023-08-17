@@ -13,6 +13,7 @@ import com.todis.todisweb.demo.dto.FriendListDetailDto;
 import com.todis.todisweb.demo.dto.FriendListDto;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -73,32 +74,37 @@ public class FriendListRepositorySupport extends QuerydslRepositorySupport {
     }
 
     public List<FriendListDetailDto> findFriendIdByUserIdDetail(int user_id, int id){
+        val u = user;
+        val fl1 = friendList;
+        val fl2 = friendList;
         if(id==1){
             return queryFactory
-                    .select(Projections.constructor(FriendListDetailDto.class, friendList.id, user.name, user.profileImageUrl,
-                            user.codyImage, user.comment))
-                    .from(user, friendList)
+                    .select(Projections.constructor(FriendListDetailDto.class, fl1.id, u.name, u.profileImageUrl,
+                            u.codyImage, u.comment))
+                    .from(u, fl1)
                     .where(user.id.eq(friendList.friendId)
-                            .and(user.id.in(
+                            .and(u.id.in(
                                     JPAExpressions
-                                            .select(friendList.friendId)
-                                            .from(friendList)
-                                            .where(friendList.userId.eq(user_id))
-                            )))
+                                            .select(fl2.friendId)
+                                            .from(fl2)
+                                            .where(fl2.userId.eq(user_id)
+                                                    .and(fl2.friendId.eq(fl1.friendId))
+                            ))))
                     .limit(searchLimit)
                     .fetch();
         } else {
             return queryFactory
-                    .select(Projections.constructor(FriendListDetailDto.class, friendList.id, user.name, user.profileImageUrl,
-                            user.codyImage, user.comment))
-                    .from(user, friendList)
+                    .select(Projections.constructor(FriendListDetailDto.class, fl1.id, u.name, u.profileImageUrl,
+                            u.codyImage, u.comment))
+                    .from(u, fl1)
                     .where(user.id.eq(friendList.friendId)
-                            .and(user.id.in(
+                            .and(u.id.in(
                                     JPAExpressions
-                                            .select(friendList.friendId)
-                                            .from(friendList)
-                                            .where(friendList.userId.eq(user_id))
-                            ))
+                                            .select(fl2.friendId)
+                                            .from(fl2)
+                                            .where(fl2.userId.eq(user_id)
+                                                    .and(fl2.friendId.eq(fl1.friendId))
+                                            )))
                             .and(user.id.gt(id)))
                     .fetch();
         }
