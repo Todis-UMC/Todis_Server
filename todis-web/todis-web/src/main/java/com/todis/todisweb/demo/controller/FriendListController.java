@@ -31,10 +31,9 @@ public class FriendListController {
 
     @GetMapping("/listdetail")
     public ResponseForm<List<FriendListDetailDto>> getFriendListDetail(
-            Authentication authentication, int id) {
+            Authentication authentication) {
         List<FriendListDetailDto> friendListDetail = null;
-        friendListDetail = friendListService.findFriendListByUserIdDetail(authentication.getName(),
-                id);
+        friendListDetail = friendListService.findFriendListByUserIdDetail(authentication.getName());
         return ResponseForm.success(GET_FRIEND_LIST_DETAIL.getCode(),
                 GET_FRIEND_LIST_DETAIL.getMessage(), friendListDetail);
     }

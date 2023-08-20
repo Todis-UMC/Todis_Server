@@ -7,23 +7,23 @@ import lombok.Getter;
 
 @Getter
 public class FriendListDetailDto {
-    private int id;
+//    private int id;
     private String name;
     private String profileImageUrl;
     private String codyImage;
     private String comment;
 
-    public FriendListDetailDto(FriendList friendList, User user, Cody cody) {
-        this.id = friendList.getId();
+    public FriendListDetailDto(User user) {
+//        this.id = id;
         this.name = user.getName();
         this.profileImageUrl = user.getProfileImageUrl();
         this.codyImage = user.getCodyImage();
         this.comment = user.getComment();
     }
 
-    public FriendListDetailDto(int id, String name, String profileImageUrl, String codyImage,
+    public FriendListDetailDto(String name, String profileImageUrl, String codyImage,
             String comment) {
-        this.id = id;
+//        this.id = id;
         this.name = name;
         this.profileImageUrl = profileImageUrl;
         this.codyImage = codyImage;
