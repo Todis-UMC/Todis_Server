@@ -28,4 +28,8 @@ public interface CodyRepository extends JpaRepository<Cody, Long> {
 
     @Query("select new com.todis.todisweb.demo.dto.CodyImageDto(c.image) from Cody c where c.userId = :userId")
     CodyImageDto getImageCody(@Param("userId") int user_id);
+
+    List<Cody> findTop7ByOrderByLikesDesc();
+
+
 }

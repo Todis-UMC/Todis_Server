@@ -4,6 +4,7 @@ import com.todis.todisweb.demo.dto.CodyImageDto;
 import com.todis.todisweb.demo.dto.CodyResponseDto;
 import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
+import com.todis.todisweb.demo.domain.Cody;
 
 public interface CodyService {
 
@@ -21,4 +22,7 @@ public interface CodyService {
     CodyResponseDto getallCody(String email);
 
     CodyImageDto getImageCody(String email);
+
+    void likeCody(String email, Integer codyId);
+    List<Cody> getTop7CodiesByLikes();
 }

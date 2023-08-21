@@ -2,10 +2,12 @@ package com.todis.todisweb.demo.service;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.todis.todisweb.demo.domain.Cody;
+import com.todis.todisweb.demo.domain.LikeCody;
 import com.todis.todisweb.demo.domain.User;
 import com.todis.todisweb.demo.dto.CodyImageDto;
 import com.todis.todisweb.demo.dto.CodyResponseDto;
 import com.todis.todisweb.demo.repository.CodyRepository;
+import com.todis.todisweb.demo.repository.LikeCodyRepository;
 import com.todis.todisweb.demo.repository.UserRepository;
 import com.todis.todisweb.demo.s3.S3Uploader;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class CodyServiceImpl implements CodyService {
 
+    private final LikeCodyRepository likeCodyRepository;
     private final CodyRepository codyRepository;
     private final UserRepository userRepository;
     private final S3Uploader s3Uploader;
@@ -31,11 +34,12 @@ public class CodyServiceImpl implements CodyService {
 
     @Autowired
     public CodyServiceImpl(S3Uploader s3Uploader, CodyRepository codyRepository,
-            UserRepository userRepository, AmazonS3 amazonS3) {
+            UserRepository userRepository, AmazonS3 amazonS3, LikeCodyRepository likeCodyRepository) {
         this.s3Uploader = s3Uploader;
         this.codyRepository = codyRepository;
         this.userRepository = userRepository;
         this.amazonS3 = amazonS3;
+        this.likeCodyRepository = likeCodyRepository;
     }
 
     @Override
@@ -170,7 +174,6 @@ public class CodyServiceImpl implements CodyService {
         if (file != null) {
             codyurl = s3Uploader.uploadImage(file);
         }
-
         Cody cody = selectedCody.get();
         cody.setImage(codyurl);
         codyRepository.save(cody);
@@ -197,8 +200,6 @@ public class CodyServiceImpl implements CodyService {
             */
             return null;
         }
-
-
     }
 
     @Override
@@ -217,8 +218,37 @@ public class CodyServiceImpl implements CodyService {
 
             return null;
         }
+    }
+
+    @Override
+    public void likeCody(String email, Integer codyId) {
+
+        Long ID = Long.valueOf(codyId);
+        //유저 객체 가져오기
+        User user = userRepository.findByEmail(email);
+
+        //좋아요 누를 코디 객체 가져오기
+        Optional<Cody> codyFilter = codyRepository.findById(ID);
+        Cody cody = codyFilter.get();
+
+        //좋아요 테이블에 추가 ( 유저ID + 코디ID)
+        LikeCody like = new LikeCody();
+        like.setUserId(user.getId());
+        like.setCoordinationId(cody.getId());
+        likeCodyRepository.save(like);
+
+        //코디 좋아요 수 추가
+        cody.setLikes(cody.getLikes()+1);
+        codyRepository.save(cody);
+        //TODO: 예외처리하기( 테이블 없을때 + 이미 좋아요 눌렀을떄)
 
 
     }
+
+    @Override
+    public List<Cody> getTop7CodiesByLikes() {
+        return codyRepository.findTop7ByOrderByLikesDesc();
+    }
+
 
 }
