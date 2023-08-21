@@ -8,6 +8,7 @@ import com.todis.todisweb.demo.domain.Cody;
 import com.todis.todisweb.demo.dto.CodyImageDto;
 import com.todis.todisweb.demo.dto.CodyResponseDto;
 import com.todis.todisweb.demo.service.CodyServiceImpl;
+import com.todis.todisweb.demo.service.UserServiceImpl;
 import com.todis.todisweb.global.response.ResponseForm;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class CodyController {
 
     @Autowired
     private CodyServiceImpl codyService;
+    @Autowired
+    private UserServiceImpl userService;
 
     @PostMapping("/cody/post")
     public ResponseForm postComment(Authentication authentication, String Comment) {
@@ -62,6 +65,7 @@ public class CodyController {
             Authentication authentication,
             @RequestPart(value = "file", required = false) MultipartFile file) {
         String url = codyService.updateallCody(authentication.getName(), file);
+        userService.saveCodyUrl(authentication.getName(), url);
         return ResponseForm.success(POST_SUCCESS.getCode(), POST_SUCCESS.getMessage(), url);
     }
 

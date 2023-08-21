@@ -26,4 +26,6 @@ public interface UserService {
     UserResponseDto getUserInfo(String email);
 
     void comparePassword(String email, String password);
+
+    void saveCodyUrl(String email, String url);
 }
