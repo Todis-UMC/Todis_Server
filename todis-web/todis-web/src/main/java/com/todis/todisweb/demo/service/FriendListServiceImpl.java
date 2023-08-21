@@ -13,6 +13,8 @@ import com.todis.todisweb.global.response.ErrorCode;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -36,10 +38,11 @@ public class FriendListServiceImpl implements FriendListService{
     }
 
     @Override
-    public List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email, int id){
+    public List<FriendListDetailDto> findFriendListByUserIdDetail(String user_email){
         List<FriendListDetailDto> result = null;
         User user = userRepository.findByEmail(user_email);
-        result = friendListRepositorySupport.findFriendIdByUserIdDetail(user.getId(), id);
+        Pageable pageable = PageRequest.of(0, 6);
+        result = friendListRepository.findFriendIdByUserIdDetail(user.getId());
         return result;
     }
 
