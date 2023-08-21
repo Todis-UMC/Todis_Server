@@ -4,6 +4,7 @@ package com.todis.todisweb.demo.controller;
 import static com.todis.todisweb.global.response.SuccessCode.GET_CODY_SUCCESS;
 import static com.todis.todisweb.global.response.SuccessCode.POST_SUCCESS;
 
+import com.todis.todisweb.demo.domain.Cody;
 import com.todis.todisweb.demo.dto.CodyImageDto;
 import com.todis.todisweb.demo.dto.CodyResponseDto;
 import com.todis.todisweb.demo.service.CodyServiceImpl;
@@ -12,11 +13,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -90,6 +87,18 @@ public class CodyController {
                 cody);
     }
 
+    @PutMapping("/cody/like")
+    public ResponseForm likeCody(Authentication authentication, @RequestParam Integer codyId){
+        String email = authentication.getName();
+        codyService.likeCody(email, codyId);
+        return ResponseForm.success(200, "성공", null);
+    }
+
+    @GetMapping("/cody/recommend")
+    public ResponseForm<List<Cody>> getRecommendedCodies(){
+        List<Cody> recommendedCodies = codyService.getTop7CodiesByLikes();
+        return ResponseForm.success(200, "성공", recommendedCodies);
+    }
 }
 
 
