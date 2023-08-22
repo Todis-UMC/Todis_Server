@@ -346,6 +346,7 @@ public class UserServiceImpl implements UserService{
     public void saveCodyUrl(String email, String url){
         User user = userRepository.findByEmail(email);
         user.setCodyImage(url);
+        user.setProfileImageUrl(url);
         userRepository.save(user);
     }
 
