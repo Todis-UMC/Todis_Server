@@ -342,6 +342,13 @@ public class UserServiceImpl implements UserService{
 
     }
 
+    @Override
+    public void saveCodyUrl(String email, String url){
+        User user = userRepository.findByEmail(email);
+        user.setCodyImage(url);
+        userRepository.save(user);
+    }
+
 
 }
 
